@@ -27,25 +27,33 @@ Số tính bằng `src/lab13.py`. Mọi con số tính từ cột `_simulated` g
 - Chi phí mỗi việc thành công gấp bao nhiêu lần "hoá đơn chia số yêu cầu"? ...
 - Khoản nào chiếm tỉ trọng lớn nhất trong tổng chi phí, bao nhiêu phần trăm? ...
 
+**Đối chiếu A2 của Nguyễn Hoa Thanh Tùng (2A202603519).** Cộng cột `tool_calls` trên cả 1.624 lượt trong `logix_runs.csv`, kể cả lượt lỗi, được 5.600 lần gọi. Tính tay: 5.600 × 15 đ/lần = **84.000 đ**.
+
 ## A3 · Tách theo loại yêu cầu
 
-| Loại | Số yêu cầu | Tỉ lệ thành công | Số lần chạy mỗi yêu cầu | Chi phí mỗi việc thành công | So với 12.000 đ |
+| Loại | Số yêu cầu | Tỉ lệ thành công | Số lần chạy mỗi yêu cầu | Chi phí mỗi việc thành công (simulated) | So với 12.000 đ (simulated) |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| noi_dia | ... | ... | ... | ... | ... |
-| hang_nang | ... | ... | ... | ... | ... |
-| quoc_te | ... | ... | ... | ... | ... |
-| doi_tac | ... | ... | ... | ... | ... |
+| noi_dia | 824 | 95,0% | 1,11 | 2.696 đ | 0,22× |
+| hang_nang | 158 | 74,1% | 1,47 | 8.221 đ | 0,69× |
+| quoc_te | 150 | 27,3% | 2,32 | 22.515 đ | 1,88× |
+| doi_tac | 68 | 54,4% | 1,88 | 10.215 đ | 0,85× |
 
-- Loại nào không đáng để trợ lý xử lý? Với loại đó, cho chạy lại tới 3 lần có giúp không? ...
+**Cách tính.** Ghép hai CSV theo `request_id`, giữ nguyên ô trống trong `quyet_dinh_xem_lai`. Cộng chi phí token và tool của mọi lượt chạy và tiền xem lại, làm lại, rồi chia cho số yêu cầu có `ket_qua == 'thanh_cong'` trong từng loại. Tỷ lệ so với 12.000 đ dùng chi phí trợ lý mỗi việc thành công, chưa gồm chi phí cố định và chi phí xử lý thủ công các yêu cầu không thành công.
+
+- Đề xuất pilot cho `noi_dia` và `hang_nang`. Loại `quoc_te` vì chỉ thành công 27,3% và tốn 22.515 đ/việc (simulated), gấp 1,88× mốc thủ công. Thử lại ít hiệu quả: tỷ lệ `ok` theo lượt giảm từ 45/150 (30,0%) xuống 12/105 (11,4%) rồi 2/93 (2,2%).
 
 ## A4 · Chi phí cố định (phạm vi noi_dia + hang_nang)
 
-| Khối lượng | Việc thành công mỗi tháng | Chi phí cố định mỗi việc | Chi phí mỗi việc thành công + cố định | So với 12.000 đ |
+| Khối lượng | Việc thành công mỗi tháng | Chi phí cố định mỗi việc | Chi phí mỗi việc thành công + cố định (simulated) | So với 12.000 đ (simulated) |
 | --- | ---: | ---: | ---: | ---: |
-| 45.000 yêu cầu/tháng | ... | ... | ... | ... |
-| Một nửa khối lượng | ... | ... | ... | ... |
+| 45.000 yêu cầu/tháng | 33.750 | 1.185 đ | 4.599 đ | 0,38× |
+| 22.500 yêu cầu/tháng | 16.875 | 2.370 đ | 5.784 đ | 0,48× |
 
-- Chi phí cố định có đổi kết luận không? Ở khối lượng nào? ...
+**Cách tính.** Trong mẫu, phạm vi pilot có 982 yêu cầu và 900 việc thành công. Chi phí biến đổi là 3.072.513,274 đ ÷ 900 = 3.413,904 đ/việc (simulated). Dự phóng số việc thành công bằng sản lượng tháng toàn hệ thống × 900/1.200, rồi chia 40 triệu đ cho số việc đó để phân bổ chi phí cố định.
+
+- Sau khi cộng chi phí cố định, chi phí mỗi việc thành công vẫn dưới 12.000 đ ở cả hai mức sản lượng. Khi giảm từ 45.000 xuống 22.500 yêu cầu/tháng, chi phí cố định mỗi việc tăng gấp đôi và tổng chi phí tăng từ 4.599 đ lên 5.784 đ/việc (simulated).
+
+**Bàn giao CP1 của Nguyễn Hoa Thanh Tùng.** Sau khi ba phép thử A1 đạt, kết quả `mo_hinh` khớp với phép tính độc lập từ CSV: phí tool A2 là 84.000 đ, đủ bốn dòng A3 và cả hai mức sản lượng A4 khớp theo độ làm tròn trong bảng.
 
 ## B1 · Đổi từng yếu tố
 
