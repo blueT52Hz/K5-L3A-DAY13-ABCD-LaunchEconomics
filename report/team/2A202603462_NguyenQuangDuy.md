@@ -4,7 +4,7 @@
 
 - Họ tên: Nguyễn Quang Duy
 - MSSV: 2A202603462
-- Email:
+- Email: nduy120505@gmail.com
 - Vai trong nhóm (người viết code, người kiểm số, người gắn nhãn 1, người gắn nhãn 2 kiêm giữ hồ sơ): người gắn nhãn 1
 
 ## 2. Phần việc phụ trách
