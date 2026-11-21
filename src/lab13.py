@@ -181,6 +181,7 @@ if __name__ == '__main__':
         fmt = ',.1f' if ten == 'hoa_don_moi_yc' else ',.0f'
         print(f'{ten:15s} {gia_tri:>14{fmt}}')
 
+    in_bang_a3(runs, reqs)
     in_bang_do_nhay(runs, reqs)
     bao_cao_gioi_han_chay_lai(runs, reqs)
     bao_cao_xem_lai_toan_bo(runs, reqs)

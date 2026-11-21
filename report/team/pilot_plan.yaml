@@ -10,11 +10,11 @@
 #   e) Mức chênh 6 điểm (859 mỗi nhóm), 20 nhân viên mỗi nhóm:
 #
 # D2 · Năm câu kiểm tra "tách được tác động" với cách chia đã chọn (mỗi câu một dòng):
-#   1. Đối chứng chạy cùng thời gian:
-#   2. Chia ngẫu nhiên hay do người chọn:
-#   3. Ảnh hưởng gián tiếp và cách giảm:
-#   4. Chỉ số chính, ngưỡng, ngày quyết định đã viết trước:
-#   5. Ít nhất 20 cụm mỗi nhóm:
+#   1. Đối chứng chạy cùng thời gian: [Nháp] Có — 20 nhân viên đối chứng chạy song song trong cùng các tuần và cùng depot với 20 nhân viên dùng trợ lý.
+#   2. Chia ngẫu nhiên hay do người chọn: [Nháp] Bốc thăm ngẫu nhiên bằng code với seed ghi trước (phân tầng theo depot), không để quản lý hay nhân viên tự chọn.
+#   3. Ảnh hưởng gián tiếp và cách giảm: [Nháp] Có rủi ro nhân viên cùng depot chia sẻ câu trả lời/gợi ý; giảm bằng cấp quyền truy cập trợ lý theo tài khoản staff_id nhóm can thiệp và log lượt mở theo staff_id.
+#   4. Chỉ số chính, ngưỡng, ngày quyết định đã viết trước: [Nháp] Có — ghi sẵn trong pilot_plan.yaml trước ngày chạy gồm dong_trong_24h_khong_mo_lai_7_ngay, MDE, ba luật dừng và decision_date.
+#   5. Ít nhất 20 cụm mỗi nhóm: [Nháp] Đạt nếu chia theo nhân viên (20 nhân viên/nhóm = 20 cụm, còn chia theo depot chỉ có 6 cụm/nhóm nên không đạt; chờ chốt với D1 ở CP4).
 #
 # Đánh đổi đã chấp nhận (nếu cách chia chưa đạt cả hai điều kiện):
 #
