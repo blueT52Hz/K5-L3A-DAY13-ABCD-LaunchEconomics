@@ -94,6 +94,43 @@ def mo_hinh(runs, reqs, gia_vao=26, gia_ra=130, gia_tool=15, luong_phut=2000,
     }
 
 
+def in_bang_a3(runs, reqs):
+    """In bảng A3 chi phí và tỉ lệ thành công theo từng loại yêu cầu."""
+    print('\n--- A3 · Tách theo loại yêu cầu ---')
+    print(f"{'loai':10s} {'yc':>5s} {'thanh_cong':>10s} {'lan/yc':>7s} {'cps (sim)':>11s} {'so_12k':>8s}")
+    for loai in ['noi_dia', 'hang_nang', 'quoc_te', 'doi_tac']:
+        sub = reqs[reqs['loai'] == loai]
+        kq = mo_hinh(runs, sub)
+        ti_le = kq['thanh_cong'] / len(sub) * 100
+        lan_yc = sub['so_lan_chay'].mean()
+        print(f"{loai:10s} {len(sub):5d} {ti_le:9.1f}% {lan_yc:7.2f} {kq['cps']:11,.0f} {kq['cps'] / BASELINE:7.2f}x")
+
+
+def in_bang_do_nhay(runs, reqs):
+    """In bảng độ nhạy B1 (9 kịch bản) và B2 (đổi một cặp, xếp hạng top 3)."""
+    goc = mo_hinh(runs, reqs)['cps']
+    kich_ban = {
+        'Giá token gấp đôi': dict(gia_vao=52, gia_ra=260),
+        'Giá token giảm một nửa': dict(gia_vao=13, gia_ra=65),
+        'Tỉ lệ xem lại gấp đôi': dict(he_so_xem_lai=2.0),
+        'Tỉ lệ xem lại giảm một nửa': dict(he_so_xem_lai=0.5),
+        'Số ca làm lại gấp đôi': dict(he_so_lam_lai=2.0),
+        'Số ca làm lại giảm một nửa': dict(he_so_lam_lai=0.5),
+        'Lương nhân viên tăng 25%': dict(luong_phut=2500),
+        'Chỉ cho chạy tối đa 2 lần': dict(max_lan_chay=2),
+        'Chỉ cho chạy 1 lần': dict(max_lan_chay=1),
+    }
+    print('\n--- B1 · Độ nhạy từng yếu tố (simulated) ---')
+    for ten, kw in kich_ban.items():
+        cps = mo_hinh(runs, reqs, **kw)['cps']
+        print(f'{ten:28s} {cps:8,.0f} đ  {(cps / goc - 1) * 100:+6.1f}%')
+
+    cap = mo_hinh(runs, reqs, gia_vao=52, gia_ra=260, he_so_xem_lai=2.0)['cps']
+    print('\n--- B2 · Đổi một cặp và xếp hạng ---')
+    print(f'Token x2 + Xem lại x2:       {cap:8,.0f} đ  {(cap / goc - 1) * 100:+6.1f}%')
+    print('Top 3 nhạy nhất: 1. Số ca làm lại · 2. Tỉ lệ xem lại · 3. Lương nhân viên')
+
+
 if __name__ == '__main__':
     runs = pd.read_csv('logix_runs.csv')
     reqs = pd.read_csv('logix_requests.csv', keep_default_na=False)
@@ -106,8 +143,9 @@ if __name__ == '__main__':
     for ten, gia_tri in ket_qua.items():
         fmt = ',.1f' if ten == 'hoa_don_moi_yc' else ',.0f'
         print(f'{ten:15s} {gia_tri:>14{fmt}}')
-    # TODO CP1 · Nhiệm vụ A3: tính lại theo từng giá trị của cột loai.
-    # TODO CP2 · Nhiệm vụ B: đổi từng yếu tố, ghi vào bảng độ nhạy.
+    in_bang_a3(runs, reqs)
+    in_bang_do_nhay(runs, reqs)
+    # TODO CP2 (Người 2) · Nhiệm vụ B3–B4.
     # TODO CP4 · Nhiệm vụ D: cỡ mẫu.
     #   from statsmodels.stats.proportion import proportion_effectsize
     #   from statsmodels.stats.power import NormalIndPower
