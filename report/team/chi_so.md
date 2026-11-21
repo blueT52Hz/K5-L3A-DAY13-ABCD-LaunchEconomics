@@ -49,5 +49,6 @@ Viết "chỉ số trong đợt chạy thử là …", không viết "trợ lý 
 
 | Rủi ro | Tác động đã tính | Dấu hiệu theo dõi | Hành động | Người phụ trách |
 | --- | --- | --- | --- | --- |
-| ... | ... | ... | ... | ... |
-| ... | ... | ... | ... | ... |
+| Số ca làm lại tăng gấp đôi (yếu tố nhạy #1) | Chi phí mỗi việc thành công tăng **+51,8%**, từ 4.472 đ lên **6.787 đ** (simulated); làm lại hiện chiếm **51,8%** tổng chi phí | Tỉ lệ làm lại tuần > **7%** trong phạm vi pilot (đợt chạy thử: 48/982 = **4,9%**) hoặc tỉ lệ sửa + bỏ gợi ý > **40%** trong 1 tuần | Thu hẹp về `noi_dia`, tạm dừng mở rộng `hang_nang`, rà 20 trace ca làm lại và giữ giới hạn 2 lượt chạy (**6.901.220 đ** cả hệ thống, simulated) | PM trợ lý hoàn phí |
+| Phải xem lại 100% gợi ý kéo dài (yếu tố nhạy #2 & số bất lợi B4) | Chi phí tăng lên **11.743 đ (0,98×)** nếu làm lại 9 phút/ca hoặc **12.415 đ (1,03× — đắt hơn thủ công 12.000 đ)** nếu làm lại 15,3 phút/ca (simulated) | Tỉ lệ ca được xem lại > **50%** cuối bước rollout `0.25`, hoặc `phut_xem_lai` trung bình vượt mức hòa vốn **4,80 phút/ca** (simulated) trong 1 tuần | Giảm xem lại theo bậc cho `noi_dia` khi tỉ lệ sửa + bỏ < **15%**, rút gọn giao diện gợi ý để hạ thời gian xem lại xuống ≤ **4,80 phút/ca** | Trưởng nhóm CSKH |
+| Khối lượng yêu cầu thấp hơn dự kiến (A4 chi phí cố định) | Chi phí cố định 40 triệu đ/tháng đội thêm từ **+1.185 đ/việc** (45.000 yc/tháng → **4.599 đ = 0,38×**) lên **+2.370 đ/việc** khi còn một nửa khối lượng (**5.784 đ = 0,48×**, simulated) | Số việc thành công hằng tháng tụt dưới **50%** kế hoạch (< **16.875 việc/tháng**) trong 2 tuần liên tiếp | Không mở rộng phạm vi pilot, giữ nguyên `noi_dia` + `hang_nang` và rà soát lại hợp đồng chi phí cố định 40 triệu đ/tháng | Giám đốc vận hành |

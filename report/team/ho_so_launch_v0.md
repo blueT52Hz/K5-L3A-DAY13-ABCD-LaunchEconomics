@@ -12,7 +12,7 @@ Nhóm: ABCD · Lớp: L3A
 | 4 · Chỉ số chính, chỉ số dùng, chỉ số an toàn | Chưa (chờ CP5: E1) | Chưa | Người gắn nhãn 1 |
 | 5 · Bảng lỗi và cách khắc phục | 20 ca lỗi: đồng thuận 20/20 (100%). Đáng lưu ý: lỗi Hệ thống (Ca 20: hoàn trùng, cần `idempotency_key`) và lỗi Ngầm (Ca 17: 212 đơn lệch bảng giá 9 ngày không ai mở lại); đã chốt 5 cách khắc phục đo được | Xong, có bằng chứng | Người gắn nhãn 1 |
 | 6 · Pilot plan | Chưa (đã chuẩn bị khung YAML theo phạm vi A3: `noi_dia` + `hang_nang`; chờ CP4: D) | Chưa | Người giữ hồ sơ |
-| 7 · Rủi ro kinh tế | B3: Trên 1.200 yêu cầu, giới hạn 2 lượt rẻ nhất cho cả hệ thống, 6.901.220 đ (simulated, gồm xử lý thủ công các ca không thành công). B4: Nếu xem lại 100% gợi ý trong phạm vi pilot, chi phí là 11.743–12.415 đ/việc thành công (simulated) so với mốc thủ công 12.000 đ. Với 15,3 phút làm lại mỗi ca (simulated), ngưỡng hòa vốn khoảng 4,80 phút xem lại/ca (simulated). | Giả lập | Người viết code |
+| 7 · Rủi ro kinh tế | E2 & B1–B4: Rủi ro lớn nhất là làm lại × 2 (**+51,8%**, lên **6.787 đ/việc**, simulated). Bất lợi từ B4: xem lại 100% tốn **11.743 đ (0,98×)** ở 9 phút làm lại và **12.415 đ (1,03× — đắt hơn 12.000 đ)** ở 15,3 phút làm lại (simulated; hòa vốn ở ≤ **5,12** và ≤ **4,80 phút** xem lại/ca). Sản lượng giảm nửa đẩy cố định từ 1.185 đ lên **2.370 đ/việc** (tổng **5.784 đ**, simulated); B3 giới hạn 2 lượt rẻ nhất cả hệ thống (**6.901.220 đ**, simulated). | Giả lập | Người viết code |
 
 **Đề xuất:** Go · Go có điều kiện · No-go (giữ một). Go có điều kiện: ghi từng điều kiện, người phụ trách, ngày kiểm tra. No-go: ghi việc phải làm để quay lại cổng.
 
