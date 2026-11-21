@@ -2,12 +2,15 @@
 # Điền mọi chỗ có dấu hỏi. Khi nộp, ngoài các dòng chú thích không còn dấu hỏi nào.
 # Kiểm tra đọc được: python -c "import yaml; yaml.safe_load(open('../report/team/pilot_plan.yaml'))"
 #
-# D1 · Cỡ mẫu (baseline 0,70; mục tiêu +5 điểm; alpha 0,05; power 0,8; ICC 0,02)
-#   a) Chia theo yêu cầu:
-#   b) Theo nhân viên, m = 75:
-#   c) 20 nhân viên mỗi nhóm:
-#   d) 6 depot mỗi nhóm:
-#   e) Mức chênh 6 điểm (859 mỗi nhóm), 20 nhân viên mỗi nhóm:
+# D1 · Cỡ mẫu, Nguyễn Hoa Thanh Tùng (baseline 0,70; alpha 0,05 hai phía; power 0,80; ICC 0,02)
+# Tính lại bằng python lab13.py từ src/. Với c cụm và m yêu cầu/cụm, DE = 1 + (m − 1) × ICC, n hiệu dụng = c × m / DE.
+#   a) Theo yêu cầu, +5 điểm: 1.251 yêu cầu mỗi nhóm.
+#   b) Theo nhân viên, m = 75: DE = 2,48, cần 3.103 yêu cầu và 42 nhân viên mỗi nhóm. Tổng 84 vượt số 40 nhân viên hiện có.
+#   c) Với 20 nhân viên mỗi nhóm, n hiệu dụng < 20 / 0,02 = 1.000, dưới mức 1.251 cần cho +5 điểm.
+#   d) Với 6 depot mỗi nhóm, n hiệu dụng < 6 / 0,02 = 300, dưới mức 1.251 cần cho +5 điểm.
+#   e) Với +6 điểm, cần 859 quan sát hiệu dụng mỗi nhóm. Với 20 nhân viên mỗi nhóm, cần ít nhất 299 yêu cầu/người.
+#      Khi đó DE = 6,96 và 5.980 yêu cầu thực tế mỗi nhóm tương đương 859,20 quan sát hiệu dụng.
+#      Nếu hiệu ứng thật chỉ +5 điểm, power còn khoảng 0,64 ở cỡ mẫu này, theo xấp xỉ chuẩn hai phía.
 #
 # D2 · Năm câu kiểm tra "tách được tác động" với cách chia đã chọn (mỗi câu một dòng):
 #   1. Đối chứng chạy cùng thời gian: [Nháp] Có — 20 nhân viên đối chứng chạy song song trong cùng các tuần và cùng depot với 20 nhân viên dùng trợ lý.
@@ -50,6 +53,8 @@ pilot:
     - "NẾU chi phí biến đổi của trợ lý vượt 8.000 đ mỗi việc thành công TRONG 2 tuần liên tiếp THÌ PM trợ lý hoàn phí tạm dừng tăng bậc, áp dụng giới hạn 2 lượt và rà chi phí xem lại cùng chi phí làm lại trong 3 ngày KHÔNG THÌ không mở thêm loại yêu cầu ngoài phạm vi pilot."
     - "NẾU tỉ lệ sửa hoặc bỏ gợi ý vượt 40% số ca đã xem lại TRONG 1 tuần THÌ Trưởng nhóm CSKH giữ nguyên bậc pilot và phỏng vấn 5 nhân viên trong 3 ngày KHÔNG THÌ không thay đổi quy trình xem lại giữa bậc."
   interim_looks: "chỉ kiểm tra chỉ số an toàn"
-  rollback: "?"                   # ai bấm, mất bao lâu, khách được phục vụ bằng gì
+  rollback: "Giám đốc vận hành hoặc Người giữ hồ sơ bấm tắt trợ lý chậm nhất 30 phút sau khi xác nhận vượt ngưỡng; 100% yêu cầu chuyển về nhân viên CSKH xử lý thủ công theo quy trình hiện hành." # ai bấm, mất bao lâu, khách được phục vụ bằng gì
   decision_date: "?"
-  simulated_inputs: ["?"]         # liệt kê mọi con số giả lập đã dùng
+  simulated_inputs:
+    - "phut_xem_lai_simulated (A2-A4, B1-B4)"
+    - "phut_lam_lai_simulated (A2-A4, B1-B4)"
