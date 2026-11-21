@@ -24,8 +24,10 @@ Số tính bằng `src/lab13.py`. Mọi con số tính từ cột `_simulated` g
 | Chi phí mỗi việc thành công | 4.472 | | simulated |
 | Hoá đơn token và tool chia cho số yêu cầu | 274,7 | | đo từ trace |
 
-- Chi phí mỗi việc thành công gấp bao nhiêu lần "hoá đơn chia số yêu cầu"? ...
-- Khoản nào chiếm tỉ trọng lớn nhất trong tổng chi phí, bao nhiêu phần trăm? ...
+- Chi phí mỗi việc thành công gấp bao nhiêu lần "hoá đơn chia số yêu cầu"? 4.472 đ ÷ 274,7 đ ≈ **16,3 lần** (simulated). Phần lớn chi phí là giờ của nhân viên, không phải token.
+- Khoản nào chiếm tỉ trọng lớn nhất trong tổng chi phí, bao nhiêu phần trăm? **Làm lại: 2.264.000 đ, chiếm 51,8%** tổng chi phí (simulated). Xem lại chiếm 40,7% (simulated), token 5,6%, tool 1,9%.
+
+**Rà soát CP1 của Người gắn nhãn 1.** Người gắn nhãn 1 tính lại độc lập từ hai CSV, không dùng `mo_hinh`. Mọi số A2, A3, A4 khớp với bảng: tổng 4.373.585 đ, 978 việc thành công, 4.472 đ/việc; A3 khớp cả 4 loại; A4 ra 1.185 đ và 2.370 đ cố định mỗi việc. Mọi số dùng `phut_xem_lai_simulated` hoặc `phut_lam_lai_simulated` đều đã có nhãn `simulated`. Token, tool và số việc thành công đo từ trace nên không gắn nhãn.
 
 **Đối chiếu A2 của Nguyễn Hoa Thanh Tùng (2A202603519).** Cộng cột `tool_calls` trên cả 1.624 lượt trong `logix_runs.csv`, kể cả lượt lỗi, được 5.600 lần gọi. Tính tay: 5.600 × 15 đ/lần = **84.000 đ**.
 
