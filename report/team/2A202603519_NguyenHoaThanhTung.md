@@ -21,7 +21,7 @@
 - **D1:** Tính đủ năm câu. Đề xuất 20 nhân viên mỗi nhóm, 299 yêu cầu/người, **5.980 yêu cầu thực tế mỗi nhóm** để đạt **859 quan sát hiệu dụng**. Power mục tiêu là 80% ở mức tăng 6 điểm phần trăm và khoảng 64% nếu mức tăng thật là 5 điểm phần trăm.
 - **Rà CP5:** Đối chiếu ba dòng E2 với A4, B1, B3 và B4. Làm rõ phạm vi của từng kết quả chi phí, điều kiện an toàn trước khi giảm xem lại và cách dự phóng sản lượng toàn phạm vi từ cửa sổ 14 ngày. `yaml.safe_load` đọc được file, không còn dấu hỏi cần điền, và cả bốn luật dừng đủ bốn vế.
 - **Kết quả rà lịch và chi phí:** Lịch ban đầu cho một tuần ở bậc 50%, tối đa 5.250 yêu cầu mỗi nhóm ngay cả khi dùng toàn bộ lưu lượng và chia đều. Kế hoạch đã tăng bậc 50% lên **hai tuần**, nhắm đủ **5.980 yêu cầu mỗi nhóm**, rồi theo dõi mở lại trong 7 ngày sau khi đóng trước mốc quyết định **28/12/2026**. Khi so chi phí toàn hệ thống, 222 là số yêu cầu **không thành công**, gồm cả ca làm lại và ca chuyển nhân viên.
-- **C8:** Chấm hồ sơ LangChai tại commit `7e97317` và ghi **5/10** vào [phiếu chấm chung](phieu_cham.md). Kế hoạch có đối chứng đồng thời, 20 nhân viên mỗi nhóm và 4 luật dừng cụ thể. Hồ sơ chưa có số yêu cầu đủ điều kiện theo từng nhân viên để xác nhận đạt 859 yêu cầu hiệu dụng mỗi nhóm trong kỳ đo 14 ngày.
+- **C8:** Chấm hồ sơ LangChai tại commit `7e97317` và ghi **10/10** vào [phiếu chấm chung](phieu_cham.md). Kế hoạch có đối chứng đồng thời, phân ngẫu nhiên 20 nhân viên mỗi nhóm, tính đủ cỡ mẫu mục tiêu 859 yêu cầu hiệu dụng mỗi nhóm và có 4 luật dừng cụ thể. Kiểm tra lưu lượng theo nhân viên là điều kiện trước khi mở pilot.
 
 ## 4. Bằng chứng
 
