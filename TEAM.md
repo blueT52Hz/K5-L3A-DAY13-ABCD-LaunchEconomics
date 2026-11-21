@@ -46,11 +46,12 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 ### Đóng góp cụ thể
 
--
+- Viết `src/lab13.py` cho A1 (3 phép thử ĐẠT `1,20 · 1,25 · 1,25`), `mo_hinh` A2 (`4.472 đ/việc`, simulated), tách A3, B1 (9 kịch bản) và B2 (top 3 nhạy nhất).
+- Chốt 5 câu D2 và `identifiability` trong `pilot_plan.yaml`; viết E2 (3 rủi ro kinh tế) trong `chi_so.md` và đối chiếu số bất lợi B4 trong `ho_so_launch_v0.md`.
 
 ### Bằng chứng
 
--
+- [Báo cáo cá nhân Vũ Trí Dũng](report/team/2A202603478_VuTriDung.md) · [src/lab13.py](src/lab13.py) · [bang_chi_phi.md](report/team/bang_chi_phi.md) · [chi_so.md](report/team/chi_so.md)
 
 ## Nguyễn Hoa Thanh Tùng - 2A202603519 (Số 2)
 
@@ -81,11 +82,12 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 ### Đóng góp cụ thể
 
--
+- Tính 3 chỉ số E1 trên toàn mẫu (`82,83% · 27,12% · 4,25%`) và phạm vi pilot (`92,26% · 21,09% · 3,97%`), đề xuất 2 chỉ số bổ sung và 11 event có `trace_id` trong `chi_so.md`.
+- Gắn nhãn độc lập 20 ca lỗi (đồng thuận 20/20 = 100%), viết 3 dòng khắc phục (Ca 20, 19, 17) trong `bang_loi.md`; bàn giao tỉ lệ mở lại và tín hiệu an toàn cho D; điền Mục 4 `ho_so_launch_v0.md`.
 
 ### Bằng chứng
 
--
+- [Báo cáo cá nhân Nguyễn Quang Duy](report/team/2A202603462_NguyenQuangDuy.md) · [bang_loi.md](report/team/bang_loi.md) · [chi_so.md](report/team/chi_so.md)
 
 ## Khổng Tiến Dương - 2A202603467 (Số 4)
 
@@ -98,8 +100,9 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 ### Đóng góp cụ thể
 
--
+- Điền thông tin nhóm trong `TEAM.md`, dựng và cập nhật xuyên suốt `ho_so_launch_v0.md` (Mục 1, 3, 5, 6, 7 và đề xuất **Go có điều kiện**) và `group_report.md`.
+- Gắn nhãn độc lập 20 ca lỗi (đồng thuận 20/20 = 100%) và viết 2 dòng khắc phục (Ca 1, Ca 18) trong `bang_loi.md`; chốt `pilot_plan.yaml` (scope, `staff`, MDE `+6 điểm`, kéo dài bậc 50% thành 2 tuần + 7 ngày theo dõi, `decision_date: 2026-12-28`, 4 luật dừng, rollback 30 phút).
 
 ### Bằng chứng
 
--
+- [Báo cáo cá nhân Khổng Tiến Dương](report/team/2A202603467_KhongTienDuong.md) · [ho_so_launch_v0.md](report/team/ho_so_launch_v0.md) · [pilot_plan.yaml](report/team/pilot_plan.yaml) · [group_report.md](report/team/group_report.md)
