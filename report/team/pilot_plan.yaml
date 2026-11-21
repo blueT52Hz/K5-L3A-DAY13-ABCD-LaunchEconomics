@@ -45,7 +45,7 @@ pilot:
     unit: "staff"                 # request | staff | depot
     control_share: 0.5
     randomized: true
-  rollout: [0.10, 0.25, 0.50]     # mỗi bước một tuần
+  rollout: [0.10, 0.25, 0.50, 0.50] # mỗi bước 1 tuần; kéo dài bậc 50% thành 2 tuần (14 ngày) để đủ >= 5.980 yc/nhóm (~614 yc/ngày/nhóm => cần >= 10 ngày)
   primary_metric:
     name: dong_trong_24h_khong_mo_lai_7_ngay
     baseline: 0.70
@@ -70,7 +70,7 @@ pilot:
     - "NẾU audit_sample_checked có tỉ lệ lệch tiền vượt 1% mẫu hoặc refund_ledger_write ghi nhận từ 1 lệnh hoàn trùng/ngày TRONG bất kỳ tuần kiểm tra nào THÌ Kỹ sư phụ trách agent hoàn phí tắt tự động ghi sổ cái trong 30 phút và rà bảng giá/idempotency_key trong 24 giờ KHÔNG THÌ tiếp tục đối soát hằng tuần."
   interim_looks: "chỉ kiểm tra chỉ số an toàn"
   rollback: "Giám đốc vận hành hoặc Người giữ hồ sơ bấm tắt trợ lý chậm nhất 30 phút sau khi xác nhận vượt ngưỡng; 100% yêu cầu chuyển về nhân viên CSKH xử lý thủ công theo quy trình hiện hành." # ai bấm, mất bao lâu, khách được phục vụ bằng gì
-  decision_date: "2026-12-21"     # sau 3 tuần rollout + 7 ngày theo dõi mo_lai_trong_7_ngay
+  decision_date: "2026-12-28"     # bắt đầu 2026-11-23: 4 tuần rollout (tuần 1: 10%, tuần 2: 25%, tuần 3-4: 50% kéo dài đủ 5.980 yc/nhóm) + 7 ngày theo dõi mo_lai_trong_7_ngay (21-27/12)
   simulated_inputs:
     - "phut_xem_lai_simulated (A2-A4, B1-B4)"
     - "phut_lam_lai_simulated (A2-A4, B1-B4)"
