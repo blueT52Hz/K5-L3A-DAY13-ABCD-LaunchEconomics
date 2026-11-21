@@ -1,9 +1,11 @@
 """Lab 13 · Định giá agent và lập kế hoạch pilot (Gate 2a) — bài làm của nhóm (file nộp).
-Chạy trong thư mục src/: python3 lab13.py   (cần pandas; Nhiệm vụ D cần thêm statsmodels)
+Chạy trong thư mục src/: python3 lab13.py   (cần pandas)
 Không cần khoá API. Điền các chỗ ghi VIẾT Ở ĐÂY (đánh dấu TODO CP1…CP4). Dữ liệu trong hai file CSV là giả lập.
 Bản gốc chưa sửa nằm ở lab13_starter.py.
 """
 import math
+from statistics import NormalDist
+
 import pandas as pd
 
 # Bảng giá GIẢ ĐỊNH của lab (không phải giá thật của nhà cung cấp nào)
@@ -168,6 +170,56 @@ def in_bang_do_nhay(runs, reqs):
     print(f'Token x2 + Xem lại x2:       {cap:8,.0f} đ  {(cap / goc - 1) * 100:+6.1f}%')
     print('Top 3 nhạy nhất: 1. Số ca làm lại · 2. Tỉ lệ xem lại · 3. Lương nhân viên')
 
+def co_mau_hai_ty_le(p1, p2, alpha, power):
+    """Tính số quan sát mỗi nhóm cho kiểm định hai tỉ lệ, hai phía."""
+    chuan = NormalDist()
+    z_alpha = chuan.inv_cdf(1 - alpha / 2)
+    z_power = chuan.inv_cdf(power)
+    p_trung_binh = (p1 + p2) / 2
+    do_lech_goc = math.sqrt(2 * p_trung_binh * (1 - p_trung_binh))
+    do_lech_thay_the = math.sqrt(p1 * (1 - p1) + p2 * (1 - p2))
+    return math.ceil(((z_alpha * do_lech_goc + z_power * do_lech_thay_the) / (p2 - p1)) ** 2)
+
+
+def in_co_mau_pilot():
+    """D1: so sánh các cách chia ở mức chênh 5 và 6 điểm phần trăm."""
+    baseline = 0.70
+    alpha = 0.05
+    power = 0.80
+    icc = 0.02
+    nhan_vien_moi_nhom = 20
+    depot_moi_nhom = 6
+
+    n_5 = co_mau_hai_ty_le(baseline, 0.75, alpha, power)
+    de_75 = 1 + (75 - 1) * icc
+    yeu_cau_5 = math.ceil(n_5 * de_75)
+    nhan_vien_5 = math.ceil(yeu_cau_5 / 75)
+
+    n_6 = co_mau_hai_ty_le(baseline, 0.76, alpha, power)
+    yeu_cau_moi_nguoi = math.ceil(n_6 * (1 - icc) / (nhan_vien_moi_nhom - n_6 * icc))
+    de_6 = 1 + (yeu_cau_moi_nguoi - 1) * icc
+    yeu_cau_6 = nhan_vien_moi_nhom * yeu_cau_moi_nguoi
+    n_hieu_dung = yeu_cau_6 / de_6
+
+    # Xấp xỉ chuẩn hai phía cho power ở mức 5 điểm với cỡ mẫu hiệu dụng đã chọn.
+    chuan = NormalDist()
+    z_alpha = chuan.inv_cdf(1 - alpha / 2)
+    h = 2 * (math.asin(math.sqrt(0.75)) - math.asin(math.sqrt(baseline)))
+    dich_chuyen = h * math.sqrt(n_hieu_dung / 2)
+    power_5 = chuan.cdf(dich_chuyen - z_alpha) + chuan.cdf(-dich_chuyen - z_alpha)
+
+    print('\nD1 · Cỡ mẫu pilot')
+    print(f'a) Theo yêu cầu, +5 điểm: {n_5:,} yêu cầu/nhóm')
+    print(f'b) Theo nhân viên, 75 yêu cầu/người: DE={de_75:.2f}, '
+          f'{yeu_cau_5:,} yêu cầu/nhóm, {nhan_vien_5} người/nhóm')
+    print(f'c) {nhan_vien_moi_nhom} nhân viên/nhóm: n hiệu dụng < {nhan_vien_moi_nhom / icc:,.0f}')
+    print(f'd) {depot_moi_nhom} depot/nhóm: n hiệu dụng < {depot_moi_nhom / icc:,.0f}')
+    print(f'e) +6 điểm: cần {n_6:,} hiệu dụng/nhóm, '
+          f'{yeu_cau_moi_nguoi} yêu cầu/người, DE={de_6:.2f}, '
+          f'{yeu_cau_6:,} yêu cầu thực tế/nhóm, {n_hieu_dung:.2f} hiệu dụng/nhóm')
+    print(f'Power nếu hiệu ứng thật chỉ +5 điểm ở cỡ mẫu câu e: {power_5:.2f}')
+
+
 if __name__ == '__main__':
     runs = pd.read_csv('logix_runs.csv')
     reqs = pd.read_csv('logix_requests.csv', keep_default_na=False)
@@ -181,6 +233,8 @@ if __name__ == '__main__':
         fmt = ',.1f' if ten == 'hoa_don_moi_yc' else ',.0f'
         print(f'{ten:15s} {gia_tri:>14{fmt}}')
 
-    # TODO CP4 · Nhiệm vụ D: cỡ mẫu.
-    #   from statsmodels.stats.proportion import proportion_effectsize
-    #   from statsmodels.stats.power import NormalIndPower
+    in_bang_do_nhay(runs, reqs)
+    bao_cao_gioi_han_chay_lai(runs, reqs)
+    bao_cao_xem_lai_toan_bo(runs, reqs)
+
+    in_co_mau_pilot()
