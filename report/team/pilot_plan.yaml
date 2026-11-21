@@ -2,12 +2,15 @@
 # Điền mọi chỗ có dấu hỏi. Khi nộp, ngoài các dòng chú thích không còn dấu hỏi nào.
 # Kiểm tra đọc được: python -c "import yaml; yaml.safe_load(open('../report/team/pilot_plan.yaml'))"
 #
-# D1 · Cỡ mẫu (baseline 0,70; mục tiêu +5 điểm; alpha 0,05; power 0,8; ICC 0,02)
-#   a) Chia theo yêu cầu:
-#   b) Theo nhân viên, m = 75:
-#   c) 20 nhân viên mỗi nhóm:
-#   d) 6 depot mỗi nhóm:
-#   e) Mức chênh 6 điểm (859 mỗi nhóm), 20 nhân viên mỗi nhóm:
+# D1 · Cỡ mẫu, Nguyễn Hoa Thanh Tùng (baseline 0,70; alpha 0,05 hai phía; power 0,80; ICC 0,02)
+# Tính lại bằng python lab13.py từ src/. Với c cụm và m yêu cầu/cụm, DE = 1 + (m − 1) × ICC, n hiệu dụng = c × m / DE.
+#   a) Theo yêu cầu, +5 điểm: 1.251 yêu cầu mỗi nhóm.
+#   b) Theo nhân viên, m = 75: DE = 2,48, cần 3.103 yêu cầu và 42 nhân viên mỗi nhóm. Tổng 84 vượt số 40 nhân viên hiện có.
+#   c) Với 20 nhân viên mỗi nhóm, n hiệu dụng < 20 / 0,02 = 1.000, dưới mức 1.251 cần cho +5 điểm.
+#   d) Với 6 depot mỗi nhóm, n hiệu dụng < 6 / 0,02 = 300, dưới mức 1.251 cần cho +5 điểm.
+#   e) Với +6 điểm, cần 859 quan sát hiệu dụng mỗi nhóm. Với 20 nhân viên mỗi nhóm, cần ít nhất 299 yêu cầu/người.
+#      Khi đó DE = 6,96 và 5.980 yêu cầu thực tế mỗi nhóm tương đương 859,20 quan sát hiệu dụng.
+#      Nếu hiệu ứng thật chỉ +5 điểm, power còn khoảng 0,64 ở cỡ mẫu này, theo xấp xỉ chuẩn hai phía.
 #
 # D2 · Năm câu kiểm tra "tách được tác động" với cách chia đã chọn (mỗi câu một dòng):
 #   1. Đối chứng chạy cùng thời gian:
