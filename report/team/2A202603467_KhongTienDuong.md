@@ -19,19 +19,20 @@
 
 - **CP1:** Cập nhật thông tin nhóm `ABCD`, lớp `L3A`, bảng phân công 4 thành viên trong `TEAM.md`; điền Mục 1 và Mục 3 trong `ho_so_launch_v0.md` từ số A2–A4; mở khung `group_report.md` và `pilot_plan.yaml` (trường `owner`, `scope`).
 - **CP2:** Cập nhật tóm tắt Nhiệm vụ B trong `group_report.md` và đối chiếu Mục 7 + 3 luật dừng trong `pilot_plan.yaml`.
-- **CP3 (Bước 5):** Gắn nhãn độc lập đủ 20 ca lỗi vào cột `Nhãn người 2` trong `report/team/bang_loi.md`.
-- **CP4–CP5 (chuẩn bị sẵn):** Điền sẵn `rollback` và `simulated_inputs` trong `pilot_plan.yaml`; chuẩn bị sẵn khung kết quả, khó khăn, hạn chế và tài liệu tham khảo trong `group_report.md`. *(Sẽ cập nhật phần chốt số liệu CP3–CP5 sau khi nhóm hoàn tất.)*
+- **CP3:** Gắn nhãn độc lập đủ 20 ca lỗi vào cột `Nhãn người 2` trong `report/team/bang_loi.md` (đồng thuận 20/20 = 100% với Người gắn nhãn 1); viết 2 dòng khắc phục đo được cho Ca 1 (`Do người dùng`) và Ca 18 (`Ngữ cảnh`); cập nhật Mục 5 vào `ho_so_launch_v0.md`.
+- **CP4:** Chốt `pilot_plan.yaml` từ D1, D2 và tín hiệu an toàn C (`assignment.unit = staff`, `mde = 0.06`, `n_per_arm = 859`, `design_effect = 6.96`, `clusters_per_arm = 20`, 4 luật dừng, `rollback` 30 phút); sửa lại lịch `rollout: [0.10, 0.25, 0.50, 0.50]` kéo dài bậc 50% thành 2 tuần để đủ `≥ 5.980` yêu cầu/nhóm + 7 ngày theo dõi `mo_lai_trong_7_ngay` và chốt `decision_date = 2026-12-28`; cập nhật Mục 6 của `ho_so_launch_v0.md`.
+- **CP5:** Nhận kết quả E1–E2 từ `chi_so.md`, hoàn thiện Mục 7 và chốt đề xuất **Go có điều kiện** (kèm 3 điều kiện, người phụ trách, ngày kiểm tra) trong `ho_so_launch_v0.md`; hoàn thiện `group_report.md` và tổng hợp đóng góp 4 thành viên trong `TEAM.md`.
 
 ## 4. Bằng chứng
 
-- Các file đã cập nhật: `TEAM.md`, `report/team/ho_so_launch_v0.md`, `report/team/group_report.md`, `report/team/pilot_plan.yaml`, `report/team/bang_loi.md`.
-- Commit CP1: `a897283`; Commit CP2: `1e6c757`.
+- Các file đã cập nhật: `TEAM.md`, `report/team/ho_so_launch_v0.md`, `report/team/group_report.md`, `report/team/pilot_plan.yaml`, `report/team/bang_loi.md`, `report/team/2A202603467_KhongTienDuong.md`.
+- Các commit đã ghi nhận: `a897283` (CP1), `1e6c757` (CP2), `c50ccfa` (CP3 Bước 5 + khung CP4–CP5), `87980ea` (CP3 Bước 6), `ea74563` & `b2a5d53` (CP4).
 
 ## 5. Công cụ AI đã dùng
 
-- Dùng trợ lý AI để hỗ trợ tổng hợp cấu trúc hồ sơ, đối chiếu số liệu từ `bang_chi_phi.md` / `src/lab13.py` và rà lỗi định dạng Markdown/YAML.
-- Tự kiểm tra bằng cách chạy `cd src && python lab13.py`, kiểm tra `yaml.safe_load` trên `report/team/pilot_plan.yaml`, và đối chiếu từng con số với bảng A2–A4, B1–B4, cũng như rà nhãn `simulated` và quy tắc chỉ lập kế hoạch pilot.
+- Dùng trợ lý AI (Antigravity / Gemini) để hỗ trợ dựng khung hồ sơ, gắn nhãn độc lập bộ 20 ca lỗi (theo đúng định nghĩa nguyên nhân gốc Google PAIR, không xem nhãn tham khảo trước), đối chiếu số liệu từ `bang_chi_phi.md` / `chi_so.md` / `src/lab13.py` và rà lỗi định dạng Markdown/YAML.
+- Tự kiểm tra bằng cách chạy `cd src && python lab13.py`, chạy `yaml.safe_load` và kiểm tra không còn `?` ngoài chú thích trên `report/team/pilot_plan.yaml`, kiểm tra lại công thức thời gian thu mẫu ở bậc `50%` (`5.980 / 613,75 ≈ 9,74 ngày` → cần 2 tuần + 7 ngày theo dõi mở lại), rà nhãn `simulated` và kiểm tra không có từ cấm trong `report/team/`.
 
 ## 6. Tự đánh giá
 
-- Hoàn thành đúng tiến độ và đúng vai trò Người gắn nhãn 2 kiêm giữ hồ sơ ở CP1–CP2 và Bước 5 CP3; đang chờ đồng đội hoàn tất phần phụ thuộc để chốt CP3–CP5.
+- Hoàn thành đầy đủ vai trò Người gắn nhãn 2 kiêm giữ hồ sơ từ CP1 đến CP5, bảo đảm 6 file hồ sơ trong `report/team/` thống nhất số liệu và sẵn sàng cho phần trình bày, duyệt chéo tại buổi (`phieu_cham.md`).
