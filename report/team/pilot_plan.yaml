@@ -21,8 +21,8 @@
 # Tỉ lệ mo_lai_trong_7_ngay hiện tại và ngưỡng an toàn đã chọn:
 
 pilot:
-  owner: "?"                      # một người có tên vai trò, không ghi "cả đội"
-  scope: "?"                      # loại yêu cầu nào, depot nào; dựa vào kết quả A3
+  owner: "Người giữ hồ sơ"       # một người có tên vai trò, không ghi "cả đội"
+  scope: "noi_dia, hang_nang (loại quoc_te và doi_tac theo A3)" # loại yêu cầu nào, depot nào; dựa vào kết quả A3
   assignment:
     unit: "?"                     # request | staff | depot
     control_share: 0.5
