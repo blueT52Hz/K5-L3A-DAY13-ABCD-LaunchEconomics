@@ -12,6 +12,14 @@
 #      Khi đó DE = 6,96 và 5.980 yêu cầu thực tế mỗi nhóm tương đương 859,20 quan sát hiệu dụng.
 #      Nếu hiệu ứng thật chỉ +5 điểm, power còn khoảng 0,64 ở cỡ mẫu này, theo xấp xỉ chuẩn hai phía.
 #
+# Bàn giao D1 ở CP4 · Nguyễn Hoa Thanh Tùng → Vũ Trí Dũng (D2), Khổng Tiến Dương (kế hoạch pilot)
+# Đề xuất chia ngẫu nhiên theo nhân viên, phân tầng theo depot, 20 nhân viên dùng trợ lý và 20 nhân viên đối chứng cùng kỳ.
+# Chia theo yêu cầu có thể đủ mẫu cho +5 điểm nhưng dễ tràn tác động khi cùng nhân viên xử lý cả hai nhóm. Chia theo depot chỉ có 6 cụm mỗi nhóm và thiếu mẫu.
+# Thông số đề xuất khi chốt YAML: assignment.unit = staff, control_share = 0,50, mde = 0,06, n_per_arm = 859 (hiệu dụng), design_effect = 6,96, clusters_per_arm = 20.
+# Bắt đầu kỳ đo chính khi đủ 20 cụm mỗi nhóm. Lập kế hoạch ít nhất 299 yêu cầu đủ điều kiện mỗi nhân viên, tức 5.980 yêu cầu thực tế mỗi nhóm.
+# Nếu cỡ cụm lệch đáng kể hoặc thiếu dữ liệu theo dõi, tính lại cỡ mẫu hiệu dụng trước khi kết luận.
+# Đánh đổi đề xuất: thiết kế có power mục tiêu 80% ở mức tăng 6 điểm phần trăm. Nếu mức tăng thật chỉ là 5 điểm phần trăm, power còn khoảng 64%.
+#
 # D2 · Năm câu kiểm tra "tách được tác động" với cách chia đã chọn (mỗi câu một dòng):
 #   1. Đối chứng chạy cùng thời gian: Có — 20 nhân viên đối chứng làm việc song song trong cùng các tuần và cùng depot với 20 nhân viên dùng trợ lý.
 #   2. Chia ngẫu nhiên hay do người chọn: Chia ngẫu nhiên bằng code với seed ghi trước (phân tầng theo depot, mỗi depot 50/50), không để quản lý hay nhân viên tự chọn.
