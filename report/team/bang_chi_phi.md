@@ -78,15 +78,24 @@ Số tính bằng `src/lab13.py`. Mọi con số tính từ cột `_simulated` g
 
 ## B3 · Giới hạn chạy lại có thật sự rẻ hơn
 
-| Giới hạn | Tổng chi phí trợ lý | Số yêu cầu không thành công | Chi phí cả hệ thống | Chi phí mỗi việc thành công |
+| Giới hạn | Tổng chi phí trợ lý (simulated) | Số yêu cầu không thành công | Chi phí cả hệ thống (simulated) | Chi phí mỗi việc thành công (simulated) |
 | --- | ---: | ---: | ---: | ---: |
-| 1 lần | ... | ... | ... | ... |
-| 2 lần | ... | ... | ... | ... |
-| 3 lần | ... | ... | ... | ... |
+| 1 lần | 3.621.781 đ | 319 | 7.449.781 đ | **4.111 đ** |
+| 2 lần | 4.093.220 đ | 234 | **6.901.220 đ** | 4.237 đ |
+| 3 lần | 4.373.585 đ | 222 | 7.037.585 đ | 4.472 đ |
 
-- Giới hạn nào rẻ nhất cho công ty? Có trùng với giới hạn cho chi phí mỗi việc thành công thấp nhất không? ...
+Chi phí cả hệ thống bằng chi phí trợ lý cộng 12.000 đ cho mỗi yêu cầu không thành công.
+
+- **Giới hạn 2 lượt** rẻ nhất cho công ty, **6.901.220 đ** (simulated). Giới hạn 1 lượt cho chi phí trợ lý mỗi việc thành công thấp nhất (**4.111 đ**, simulated), nhưng để lại thêm **85 yêu cầu** cho nhân viên xử lý so với giới hạn 2 lượt.
 
 ## B4 · Nếu phải xem lại tất cả
 
-- Chi phí mỗi việc thành công khi xem lại 100% (`noi_dia` + `hang_nang`), so với 12.000 đ: ...
-- Kết quả này nói gì về thứ pilot cần học được? ...
+Trong 982 yêu cầu `noi_dia` và `hang_nang`, 948 yêu cầu có ít nhất một lượt `ok`, 48 ca phải làm lại và 900 yêu cầu thành công. Token và tool của mọi lượt chạy tốn 224.513 đ. Xem lại từng yêu cầu có gợi ý trong 5 phút tốn 9.480.000 đ (simulated). Dùng 9 phút làm lại theo đề và 15,3 phút làm lại trung bình trên toàn mẫu từ `phut_lam_lai_simulated`.
+
+| Phút làm lại mỗi ca | Chi phí làm lại (simulated) | Chi phí mỗi việc thành công (simulated) | So với 12.000 đ (simulated) | Phút xem lại hòa vốn mỗi ca (simulated) |
+| --- | ---: | ---: | ---: | ---: |
+| 9 phút | 864.000 đ | 11.743 đ | 0,98× | 5,12 |
+| 15,3 phút (simulated) | 1.468.800 đ | 12.415 đ | 1,03× | 4,80 |
+
+- Xem lại 100% gợi ý ở mức 5 phút/ca cho chi phí **11.743 đ/việc** nếu làm lại 9 phút và **12.415 đ/việc** nếu làm lại 15,3 phút (simulated).
+- Pilot cần đo phút xem lại, phút làm lại và tỷ lệ xem lại có thể giảm mà vẫn đạt ngưỡng an toàn. Nếu vẫn xem lại 100% và mất 15,3 phút làm lại mỗi ca, thời gian xem lại cần ở khoảng **4,80 phút/ca** hoặc thấp hơn để hòa vốn (simulated).
