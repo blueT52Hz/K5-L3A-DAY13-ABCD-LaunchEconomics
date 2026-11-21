@@ -5,7 +5,8 @@
 - Tên nhóm: ABCD
 - Lớp: L3A
 - Repo nhóm: `K5-L3A-DAY13-ABCD-LaunchEconomics` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt: `https://github.com/blueT52Hz/K5-L3A-DAY13-ABCD-LaunchEconomics`, nhánh `main` (cập nhật commit chốt ở CP5)
+- Repo nộp bài: `https://github.com/blueT52Hz/K5-L3A-DAY13-ABCD-LaunchEconomics`, nhánh `main`.
+- Commit chốt nội dung CP5: `231172eb471524e289cf5ee4a2f1445359f81a28`.
 
 ## Thành viên
 
