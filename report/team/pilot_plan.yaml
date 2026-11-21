@@ -41,10 +41,14 @@ pilot:
     concurrent_control: "?"
     spillover_risk: "?"
     predeclared: "?"
+  # Bản nháp CP2. Chốt lại cùng nhóm đối chứng, lịch đo và quyền dừng ở CP4.
+  # Tỉ lệ mở lại trong phạm vi thử là 3,97% (39/982).
+  # B3: 2 lượt tốn 6.901.220 đ cả hệ thống trên mẫu (simulated).
+  # B4: Xem lại 100% gợi ý tốn 11.743–12.415 đ/việc thành công (simulated).
   stop_rules:
-    - "NẾU ? TRONG ? THÌ ? KHÔNG THÌ ?"
-    - "NẾU ? TRONG ? THÌ ? KHÔNG THÌ ?"
-    - "NẾU ? TRONG ? THÌ ? KHÔNG THÌ ?"
+    - "NẾU tỉ lệ mở lại 7 ngày vượt 6% hoặc cao hơn nhóm đối chứng ít nhất 2 điểm phần trăm TRONG 3 ngày kiểm tra liên tiếp trên các ca đã đủ thời gian theo dõi THÌ Giám đốc vận hành tắt trợ lý chậm nhất 30 phút sau khi xác nhận và giao nhân viên xử lý KHÔNG THÌ không tăng bậc khi dữ liệu theo dõi còn thiếu."
+    - "NẾU chi phí biến đổi của trợ lý vượt 8.000 đ mỗi việc thành công TRONG 2 tuần liên tiếp THÌ PM trợ lý hoàn phí tạm dừng tăng bậc, áp dụng giới hạn 2 lượt và rà chi phí xem lại cùng chi phí làm lại trong 3 ngày KHÔNG THÌ không mở thêm loại yêu cầu ngoài phạm vi pilot."
+    - "NẾU tỉ lệ sửa hoặc bỏ gợi ý vượt 40% số ca đã xem lại TRONG 1 tuần THÌ Trưởng nhóm CSKH giữ nguyên bậc pilot và phỏng vấn 5 nhân viên trong 3 ngày KHÔNG THÌ không thay đổi quy trình xem lại giữa bậc."
   interim_looks: "chỉ kiểm tra chỉ số an toàn"
   rollback: "?"                   # ai bấm, mất bao lâu, khách được phục vụ bằng gì
   decision_date: "?"

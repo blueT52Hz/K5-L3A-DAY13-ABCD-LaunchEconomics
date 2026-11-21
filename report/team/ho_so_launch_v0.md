@@ -12,7 +12,7 @@ Nhóm: ABCD · Lớp: L3A
 | 4 · Chỉ số chính, chỉ số dùng, chỉ số an toàn | Chưa (chờ CP5: E1) | Chưa | Người gắn nhãn 1 |
 | 5 · Bảng lỗi và cách khắc phục | Chưa (chờ CP3: C) | Chưa | Người gắn nhãn 1 |
 | 6 · Pilot plan | Chưa (đã chuẩn bị khung YAML theo phạm vi A3: `noi_dia` + `hang_nang`; chờ CP4: D) | Chưa | Người giữ hồ sơ |
-| 7 · Rủi ro kinh tế | Chưa (chờ CP2 & CP5: B, E2) | Chưa | Người viết code |
+| 7 · Rủi ro kinh tế | B3: Trên 1.200 yêu cầu, giới hạn 2 lượt rẻ nhất cho cả hệ thống, 6.901.220 đ (simulated, gồm xử lý thủ công các ca không thành công). B4: Nếu xem lại 100% gợi ý trong phạm vi pilot, chi phí là 11.743–12.415 đ/việc thành công (simulated) so với mốc thủ công 12.000 đ. Với 15,3 phút làm lại mỗi ca (simulated), ngưỡng hòa vốn khoảng 4,80 phút xem lại/ca (simulated). | Giả lập | Người viết code |
 
 **Đề xuất:** Go · Go có điều kiện · No-go (giữ một). Go có điều kiện: ghi từng điều kiện, người phụ trách, ngày kiểm tra. No-go: ghi việc phải làm để quay lại cổng.
 
