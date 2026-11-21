@@ -20,8 +20,8 @@
 - **B3–B4:** Giới hạn 2 lượt có chi phí cả hệ thống thấp nhất trên mẫu (**6.901.220 đ**, simulated). Khi xem lại 100% gợi ý, chi phí là **11.743–12.415 đ/việc thành công** (simulated). Với 15,3 phút làm lại mỗi ca, ngưỡng hòa vốn khoảng **4,80 phút xem lại/ca** (simulated).
 - **D1:** Tính đủ năm câu. Đề xuất 20 nhân viên mỗi nhóm, 299 yêu cầu/người, **5.980 yêu cầu thực tế mỗi nhóm** để đạt **859 quan sát hiệu dụng**. Power mục tiêu là 80% ở mức tăng 6 điểm phần trăm và khoảng 64% nếu mức tăng thật là 5 điểm phần trăm.
 - **Rà CP5:** Đối chiếu ba dòng E2 với A4, B1, B3 và B4. Làm rõ phạm vi của từng kết quả chi phí, điều kiện an toàn trước khi giảm xem lại và cách dự phóng sản lượng toàn phạm vi từ cửa sổ 14 ngày. `yaml.safe_load` đọc được file, không còn dấu hỏi cần điền, và cả bốn luật dừng đủ bốn vế.
-- **Điểm cần chốt trong hồ sơ:** Lịch đang cho một tuần ở bậc 50%. Ngay cả ở mức 1.500 yêu cầu/ngày và chia đều, một tuần chỉ có tối đa 5.250 yêu cầu mỗi nhóm, dưới 5.980. Cần thu đủ mẫu ở bậc 50% rồi dành thời gian theo dõi mở lại sau lần đóng. Khi so chi phí toàn hệ thống, 222 là số yêu cầu **không thành công**, gồm cả ca làm lại và ca chuyển nhân viên.
-- **C8:** Chờ hồ sơ nhóm được phân công. Câu hỏi để dùng khi duyệt: Nhóm cần bao nhiêu ca đủ theo dõi ở mỗi nhánh, cần thu trong bao lâu và ai có quyền dừng nếu thiếu mẫu hoặc vượt ngưỡng an toàn?
+- **Kết quả rà lịch và chi phí:** Lịch ban đầu cho một tuần ở bậc 50%, tối đa 5.250 yêu cầu mỗi nhóm ngay cả khi dùng toàn bộ lưu lượng và chia đều. Kế hoạch đã tăng bậc 50% lên **hai tuần**, nhắm đủ **5.980 yêu cầu mỗi nhóm**, rồi theo dõi mở lại trong 7 ngày sau khi đóng trước mốc quyết định **28/12/2026**. Khi so chi phí toàn hệ thống, 222 là số yêu cầu **không thành công**, gồm cả ca làm lại và ca chuyển nhân viên.
+- **C8:** Chấm hồ sơ LangChai tại commit `7e97317` và ghi **5/10** vào [phiếu chấm chung](phieu_cham.md). Kế hoạch có đối chứng đồng thời, 20 nhân viên mỗi nhóm và 4 luật dừng cụ thể. Hồ sơ chưa có số yêu cầu đủ điều kiện theo từng nhân viên để xác nhận đạt 859 yêu cầu hiệu dụng mỗi nhóm trong kỳ đo 14 ngày.
 
 ## 4. Bằng chứng
 
