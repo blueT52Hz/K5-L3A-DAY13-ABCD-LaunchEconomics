@@ -9,12 +9,12 @@
 
 ## Thành viên
 
-| STT | Họ tên | MSSV | Email | GitHub | Vai trò |
-| --: | ------ | ---- | ----- | ------ | ------- |
-|   1 | Vũ Trí Dũng | 2A202603478 | | | Viết code trước giải lao |
-|   2 | Nguyễn Hoa Thanh Tùng | 2A202603519 | | | Kiểm số, viết code sau giải lao |
-|   3 | Nguyễn Quang Duy | 2A202603462 | | | Gắn nhãn 1, theo dõi tiêu chí đạt |
-|   4 | Khổng Tiến Dương | 2A202603467 | | | Gắn nhãn 2, kiêm giữ hồ sơ |
+| STT | Họ tên                | MSSV        | Email | GitHub | Vai trò                           |
+| --: | --------------------- | ----------- | ----- | ------ | --------------------------------- |
+|   1 | Vũ Trí Dũng           | 2A202603478 |       |        | Viết code trước giải lao          |
+|   2 | Nguyễn Hoa Thanh Tùng | 2A202603519 |       |        | Kiểm số, viết code sau giải lao   |
+|   3 | Nguyễn Quang Duy      | 2A202603462 |       |        | Gắn nhãn 1, theo dõi tiêu chí đạt |
+|   4 | Khổng Tiến Dương      | 2A202603467 |       |        | Gắn nhãn 2, kiêm giữ hồ sơ        |
 
 Bốn vai của lab:
 
