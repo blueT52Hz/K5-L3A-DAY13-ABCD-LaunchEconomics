@@ -1,51 +1,65 @@
 # Lab 13 · Nhiệm vụ D · Kế hoạch pilot trợ lý hoàn phí LogiX-VN (Gate 2a)
-# Điền mọi chỗ có dấu hỏi. Khi nộp, ngoài các dòng chú thích không còn dấu hỏi nào.
-# Kiểm tra đọc được: python -c "import yaml; yaml.safe_load(open('../report/team/pilot_plan.yaml'))"
-#
-# D1 · Cỡ mẫu (baseline 0,70; mục tiêu +5 điểm; alpha 0,05; power 0,8; ICC 0,02)
-#   a) Chia theo yêu cầu:
-#   b) Theo nhân viên, m = 75:
-#   c) 20 nhân viên mỗi nhóm:
-#   d) 6 depot mỗi nhóm:
-#   e) Mức chênh 6 điểm (859 mỗi nhóm), 20 nhân viên mỗi nhóm:
-#
-# D2 · Năm câu kiểm tra "tách được tác động" với cách chia đã chọn (mỗi câu một dòng):
-#   1. Đối chứng chạy cùng thời gian:
-#   2. Chia ngẫu nhiên hay do người chọn:
-#   3. Ảnh hưởng gián tiếp và cách giảm:
-#   4. Chỉ số chính, ngưỡng, ngày quyết định đã viết trước:
-#   5. Ít nhất 20 cụm mỗi nhóm:
-#
-# Đánh đổi đã chấp nhận (nếu cách chia chưa đạt cả hai điều kiện):
-#
-# Tỉ lệ mo_lai_trong_7_ngay hiện tại và ngưỡng an toàn đã chọn:
+# D1 · Baseline 0,70, alpha 0,05, power 0,80, ICC 0,02
+# a. Chia theo yêu cầu: 1.251 mỗi nhóm để phát hiện tăng 5 điểm.
+# b. Nhân viên, m=75: DE=2,48; 3.103 yêu cầu và 42 người mỗi nhóm.
+# c. 20 nhân viên mỗi nhóm: dưới 1.000 hiệu dụng, dù tăng lượng yêu cầu.
+# d. 6 depot mỗi nhóm: dưới 300 hiệu dụng.
+# e. Tăng 6 điểm: 859 hiệu dụng, ít nhất 299 yêu cầu/người với DE=6,96.
+# D2 · Kiểm tra khả năng tách tác động
+# 1. Đối chứng cùng kỳ và cùng loại yêu cầu.
+# 2. Bốc thăm nhân viên, phân tầng theo depot, ghi seed trước.
+# 3. Giới hạn quyền theo tài khoản và theo dõi lượt mở trái nhóm.
+# 4. Chốt chỉ số, ngưỡng và ngày đánh giá trước khi mở.
+# 5. Có 20 cụm mỗi nhóm trong kỳ đo chính.
+# Tỷ lệ mở lại ở mẫu là 4,25% toàn bộ và 3,97% trong phạm vi.
+# Đánh đổi: power ở mức tăng 5 điểm chỉ khoảng 0,64. Cần người duyệt xác nhận.
+# Các mốc dưới đây là lịch đề xuất.
 
 pilot:
-  owner: "?"                      # một người có tên vai trò, không ghi "cả đội"
-  scope: "?"                      # loại yêu cầu nào, depot nào; dựa vào kết quả A3
+  owner: "Giám đốc vận hành LogiX-VN"
+  scope: "Nội địa và hàng nặng tại 12 depot, tối đa 2 lượt chạy. A3 cho 2.696 và 8.221 đ mỗi việc thành công (simulated). Nhân viên tiếp tục xử lý quốc tế và đối tác."
   assignment:
-    unit: "?"                     # request | staff | depot
+    unit: staff
     control_share: 0.5
     randomized: true
-  rollout: [0.10, 0.25, 0.50]     # mỗi bước một tuần
+    stratified_by: depot
+    random_seed: 13024
+    rule: "Cân bằng số người theo depot và giữ 20–20 toàn công ty. Phân tích theo nhóm của người nhận đầu, kể cả ca chuyển giao."
+  rollout: [0.10, 0.25, 0.50]
+  rollout_windows:
+    - {staff_enabled: 4, start: "2026-12-01", first_week_ends: "2026-12-07"}
+    - {staff_enabled: 10, start: "2026-12-17", first_week_ends: "2026-12-23"}
+    - {staff_enabled: 20, start: "2027-01-04", first_week_ends: "2027-01-10"}
+  rollout_gate: "Giữ bậc cũ đến khi theo dõi đủ tuần đầu và có ít nhất 100 yêu cầu đủ theo dõi mỗi nhóm. Xem lại mọi gợi ý ở bậc đầu. Chỉ giảm duyệt nội địa khi sửa hoặc bỏ dưới 15% trên ít nhất 100 ca đã xem lại và qua luật an toàn. Hàng nặng tiếp tục được duyệt thủ công. Khóa quy trình trong kỳ đo chính."
   primary_metric:
     name: dong_trong_24h_khong_mo_lai_7_ngay
     baseline: 0.70
-    mde: 0.05
+    business_lift: 0.05
+    mde: 0.06
     alpha: 0.05
     power: 0.80
-    n_per_arm: "?"
-    design_effect: "?"            # 1 nếu chia theo yêu cầu
-    clusters_per_arm: "?"         # để trống nếu chia theo yêu cầu
+    n_per_arm: 859
+    design_effect: 6.96
+    clusters_per_arm: 20
+    requests_per_staff_min: 299
+    enrollment: {start: "2027-01-04", end: "2027-01-17"}
+    volume_gate: "Quản lý depot xác nhận ít nhất 5.980 ca mỗi nhóm và 299 mỗi người trong kỳ đo. Nếu lệch cỡ cụm lớn, tính lại cỡ mẫu hiệu dụng trước khi kết luận."
+    follow_up: "Quan sát tối thiểu 8 ngày sau lúc tạo để xét 24 giờ đến lần đóng đầu và 7 ngày sau lần đóng đó."
+    analysis: "Ước lượng chênh lệch điểm phần trăm theo nhóm phân ban đầu với khoảng tin cậy 95%, điều chỉnh depot và cụm nhân viên. Hạn chế của thiết kế là power khoảng 0,64 ở mức tăng 5 điểm."
   identifiability:
-    concurrent_control: "?"
-    spillover_risk: "?"
-    predeclared: "?"
+    concurrent_control: "Đối chứng chạy cùng kỳ, cùng depot và cùng loại yêu cầu."
+    spillover_risk: "Tách quyền trợ lý theo tài khoản, giữ tài liệu dùng chung ổn định và ghi log mọi lượt mở."
+    predeclared: "Chốt chỉ số, ngưỡng, seed và lịch trước ngày 2026-12-01."
   stop_rules:
-    - "NẾU ? TRONG ? THÌ ? KHÔNG THÌ ?"
-    - "NẾU ? TRONG ? THÌ ? KHÔNG THÌ ?"
-    - "NẾU ? TRONG ? THÌ ? KHÔNG THÌ ?"
-  interim_looks: "chỉ kiểm tra chỉ số an toàn"
-  rollback: "?"                   # ai bấm, mất bao lâu, khách được phục vụ bằng gì
-  decision_date: "?"
-  simulated_inputs: ["?"]         # liệt kê mọi con số giả lập đã dùng
+    - "NẾU xác nhận 1 ca hoàn trùng hoặc báo đã hoàn mà thiếu giao dịch hợp lệ TRONG bất kỳ thời điểm nào THÌ Giám đốc vận hành tắt trợ lý trong 30 phút KHÔNG THÌ không tự tăng bậc ngoài lịch."
+    - "NẾU tỷ lệ mở lại vượt 6% tuyệt đối hoặc cao hơn đối chứng từ 2 điểm TRONG 3 ngày kiểm tra liên tiếp, trên cửa sổ đủ theo dõi có ít nhất 100 ca mỗi nhóm THÌ Giám đốc vận hành tạm dừng và rà giao dịch trong 24 giờ KHÔNG THÌ không tăng bậc khi thiếu số đo."
+    - "NẾU chi phí biến đổi vượt 8.000 đ mỗi việc thành công TRONG hai tuần đủ theo dõi liên tiếp THÌ PM giữ bậc hiện tại và trình phương án thu hẹp trong 3 ngày KHÔNG THÌ không mở thêm loại yêu cầu khi chưa duyệt."
+    - "NẾU sửa hoặc bỏ vượt 40% trên ít nhất 50 ca đã duyệt hoặc tỷ lệ mở trợ lý dưới 60% trên ít nhất 100 ca được bật TRONG một tuần THÌ Trưởng nhóm CSKH dừng tăng bậc và phỏng vấn 5 người trong 3 ngày KHÔNG THÌ không đổi quy trình đã khóa trong kỳ đo."
+  interim_looks: "Chỉ xem chỉ số an toàn để đánh giá giữa kỳ. Chi phí và mức dùng chỉ dùng cho vận hành. Đợi đến ngày chốt mới phân tích hiệu quả chính."
+  rollback: "Giám đốc vận hành hoặc trưởng ca được ủy quyền tắt quyền trong 30 phút. Nhân viên xử lý thủ công và đối soát lệnh hoàn đang chờ trước khi thao tác lại."
+  decision_date: "2027-01-26"
+  decision_rule: "Đủ cụm và mẫu, ước lượng tăng ít nhất 5 điểm và cận dưới khoảng tin cậy lớn hơn 0, qua luật vận hành, tổng chi phí gồm cố định và phần bàn giao thấp hơn thủ công. Thiếu điều kiện thì chưa mở thêm."
+  simulated_inputs:
+    - "Hai CSV, tỷ lệ mở lại, cơ cấu yêu cầu và phút xem lại, làm lại."
+    - "Đơn giá đề bài và chi phí cố định 40 triệu đ/tháng, các dự phóng A4, B4."
+    - "Baseline 0,70, ICC 0,02 và lưu lượng 1.500 yêu cầu/ngày là giả định thiết kế."

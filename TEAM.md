@@ -2,10 +2,11 @@
 
 ## Thông tin nhóm
 
-- Tên nhóm:
-- Lớp: L3A hoặc L3B
-- Repo nhóm: `K5-L3A-DAY13-TenNhom-LaunchEconomics` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt:
+- Tên nhóm: ABCD
+- Lớp: L3A
+- Repo nhóm: `K5-L3A-DAY13-ABCD-LaunchEconomics`
+- URL repo: https://github.com/blueT52Hz/K5-L3A-DAY13-ABCD-LaunchEconomics
+- Nhánh dự kiến nộp: `main`. Commit chốt chờ nhóm xác nhận.
 
 ## Thành viên
 

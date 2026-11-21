@@ -1,82 +1,76 @@
 # Bảng chi phí · Nhiệm vụ A và B
 
-Số tính bằng `src/lab13.py`. Mọi con số tính từ cột `_simulated` ghi nhãn `simulated`. Mỗi câu trả lời không quá ba dòng, có ít nhất một con số.
+Số được tính bằng src/lab13.py trên dữ liệu giả lập của đề.
 
 ## A1 · Ba phép thử đáp án biết trước
 
-| Phép thử (p = 0,8) | Kết quả của nhóm |
-| --- | --- |
-| Số lần chạy trung bình, tối đa 2 lần | ... |
-| Số lần chạy trung bình, chạy đến khi đúng | ... |
-| Hệ số chi phí mỗi việc thành công, tối đa 3 lần | ... |
+Ba phép thử đáp án biết trước: ĐẠT (1,20 · 1,25 · 1,25)
 
-## A2 · Mô hình chi phí từ trace
+## A2 · Chi phí từ trace
 
-| Khoản | Số tiền (đ) | Nguồn | Nhãn |
-| --- | ---: | --- | --- |
-| Token | ... | `logix_runs.csv` | đo từ trace |
-| Tool | ... | `logix_runs.csv` | đo từ trace |
-| Trong đó, phần của lần chạy thứ 2 và 3 | ... | attempt lớn hơn 1 | đo từ trace |
-| Xem lại | ... | `phut_xem_lai_simulated` | simulated |
-| Làm lại | ... | `phut_lam_lai_simulated` | simulated |
-| Tổng chi phí | ... | | |
-| Số việc thành công | ... | `ket_qua` | |
-| Chi phí mỗi việc thành công | ... | | |
-| Hoá đơn token và tool chia cho số yêu cầu | ... | | |
+| Khoản | Giá trị (đ nếu là tiền) | Nguồn hoặc nhãn |
+| --- | --- | --- |
+| Token | 245.585 | logix_runs.csv |
+| Tool | 84.000 | logix_runs.csv |
+| Trong đó, lượt 2 và 3 | 93.804 | Đã gồm trong token và tool |
+| Xem lại | 1.780.000 | simulated |
+| Làm lại | 2.264.000 | simulated |
+| Tổng chi phí | 4.373.585 | simulated |
+| Số việc thành công | 978 | ket_qua |
+| Chi phí mỗi việc thành công | 4.472 | simulated |
+| Hóa đơn máy mỗi yêu cầu | 274,7 | Token và tool / số yêu cầu |
 
-- Chi phí mỗi việc thành công gấp bao nhiêu lần "hoá đơn chia số yêu cầu"? ...
-- Khoản nào chiếm tỉ trọng lớn nhất trong tổng chi phí, bao nhiêu phần trăm? ...
+Chi phí mỗi việc thành công cao gấp 16,3 lần hóa đơn máy mỗi yêu cầu. Làm lại chiếm tỷ trọng lớn nhất, 51,8% (simulated).
 
-## A3 · Tách theo loại yêu cầu
+## A3 · Tách theo loại
 
-| Loại | Số yêu cầu | Tỉ lệ thành công | Số lần chạy mỗi yêu cầu | Chi phí mỗi việc thành công | So với 12.000 đ |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| noi_dia | ... | ... | ... | ... | ... |
-| hang_nang | ... | ... | ... | ... | ... |
-| quoc_te | ... | ... | ... | ... | ... |
-| doi_tac | ... | ... | ... | ... | ... |
+| Loại | Yêu cầu | Thành công | Lượt/yêu cầu | Đ/việc thành công (simulated) | So với 12.000 đ (simulated) |
+| --- | --- | --- | --- | --- | --- |
+| quoc_te | 150 | 27,3% | 2,32 | 22.515 | 1,88× |
+| hang_nang | 158 | 74,1% | 1,47 | 8.221 | 0,69× |
+| noi_dia | 824 | 95,0% | 1,11 | 2.696 | 0,22× |
+| doi_tac | 68 | 54,4% | 1,88 | 10.215 | 0,85× |
 
-- Loại nào không đáng để trợ lý xử lý? Với loại đó, cho chạy lại tới 3 lần có giúp không? ...
+Quốc tế tốn 22.515 đ/việc (simulated), đạt 27,3% việc thành công. Tỷ lệ lượt ok trong số ca đến từng lượt (30,0% · 11,4% · 2,2%) cho thấy lợi ích thấp ở lượt 2 và 3.
 
-## A4 · Chi phí cố định (phạm vi noi_dia + hang_nang)
+## A4 · Phân bổ 40 triệu đ chi phí cố định mỗi tháng
 
-| Khối lượng | Việc thành công mỗi tháng | Chi phí cố định mỗi việc | Chi phí mỗi việc thành công + cố định | So với 12.000 đ |
-| --- | ---: | ---: | ---: | ---: |
-| 45.000 yêu cầu/tháng | ... | ... | ... | ... |
-| Một nửa khối lượng | ... | ... | ... | ... |
+Hai dòng dự phóng từ 900 việc thành công nội địa và hàng nặng trên 1.200 yêu cầu toàn mẫu. Chi phí biến đổi trong phạm vi là 3.072.513 đ cho 900 việc thành công (simulated).
 
-- Chi phí cố định có đổi kết luận không? Ở khối lượng nào? ...
+| Yêu cầu/tháng toàn công ty | Việc thành công/tháng | Cố định/việc (đ) | Đ/việc gồm cố định (simulated) | So với làm tay (simulated) |
+| --- | --- | --- | --- | --- |
+| 45.000 | 33.750 | 1.185 | 4.599 | 0,38× |
+| 22.500 | 16.875 | 2.370 | 5.784 | 0,48× |
 
-## B1 · Đổi từng yếu tố
+Cả hai mức khối lượng vẫn dưới 12.000 đ. Ngưỡng hòa vốn theo chi phí mỗi việc thành công là khoảng 6.212 yêu cầu toàn công ty mỗi tháng, giả sử cơ cấu và hiệu suất giữ nguyên (simulated). Ngưỡng này chưa cộng phần nhân viên tiếp nhận.
 
-| Kịch bản | Cách tính | Chi phí mỗi việc thành công | Thay đổi (%) |
-| --- | --- | ---: | ---: |
-| Giá token gấp đôi | 52 đ và 260 đ cho 1.000 token; giá tool giữ nguyên | ... | ... |
-| Giá token giảm một nửa | 13 đ và 65 đ | ... | ... |
-| Tỉ lệ xem lại gấp đôi | Tiền xem lại × 2 | ... | ... |
-| Tỉ lệ xem lại giảm một nửa | Tiền xem lại ÷ 2 | ... | ... |
-| Số ca làm lại gấp đôi | Tiền làm lại × 2 | ... | ... |
-| Số ca làm lại giảm một nửa | Tiền làm lại ÷ 2 | ... | ... |
-| Lương nhân viên tăng 25% | 2.500 đ mỗi phút | ... | ... |
-| Chỉ cho chạy tối đa 2 lần | Bỏ lần chạy có attempt > 2; yêu cầu có so_lan_chay > 2 coi là chuyen_nhan_vien | ... | ... |
-| Chỉ cho chạy 1 lần | Như trên với giới hạn 1 | ... | ... |
+## B1 và B2 · Độ nhạy
 
-## B2 · Đổi một cặp và xếp hạng
+| Kịch bản | Đ/việc thành công (simulated) | So với A2 (simulated) |
+| --- | --- | --- |
+| Token ×2 | 4.723 | +5,6% |
+| Token ÷2 | 4.346 | -2,8% |
+| Xem lại ×2 | 6.292 | +40,7% |
+| Xem lại ÷2 | 3.562 | -20,3% |
+| Làm lại ×2 | 6.787 | +51,8% |
+| Làm lại ÷2 | 3.315 | -25,9% |
+| Lương +25% | 5.506 | +23,1% |
+| Tối đa 2 lượt | 4.237 | -5,2% |
+| Tối đa 1 lượt | 4.111 | -8,1% |
+| B2 · Token ×2 và xem lại ×2 | 6.543 | +46,3% |
 
-- Giá token gấp đôi cùng lúc tỉ lệ xem lại gấp đôi: ...
-- Xếp hạng ba yếu tố ảnh hưởng mạnh nhất: 1. ... · 2. ... · 3. ...
+Ba yếu tố ảnh hưởng mạnh nhất trong các mức đã thử là làm lại, xem lại và lương nhân viên. Tác động của cặp bằng tổng tác động riêng khi số việc thành công giữ nguyên.
 
-## B3 · Giới hạn chạy lại có thật sự rẻ hơn
+## B3 · Giới hạn chạy lại
 
-| Giới hạn | Tổng chi phí trợ lý | Số yêu cầu không thành công | Chi phí cả hệ thống | Chi phí mỗi việc thành công |
-| --- | ---: | ---: | ---: | ---: |
-| 1 lần | ... | ... | ... | ... |
-| 2 lần | ... | ... | ... | ... |
-| 3 lần | ... | ... | ... | ... |
+| Giới hạn | Trợ lý (đ, simulated) | Không thành công | Cả hệ thống (đ, simulated) | Đ/việc thành công (simulated) |
+| --- | --- | --- | --- | --- |
+| 1 | 3.621.781 | 319 | 7.449.781 | 4.111 |
+| 2 | 4.093.220 | 234 | 6.901.220 | 4.237 |
+| 3 | 4.373.585 | 222 | 7.037.585 | 4.472 |
 
-- Giới hạn nào rẻ nhất cho công ty? Có trùng với giới hạn cho chi phí mỗi việc thành công thấp nhất không? ...
+Hai lượt cho tổng chi phí hệ thống thấp nhất. Giới hạn một lượt làm giảm chi phí mỗi việc thành công nhưng có thêm 85 yêu cầu cần nhân viên xử lý.
 
-## B4 · Nếu phải xem lại tất cả
+## B4 · Xem lại 100% trong phạm vi
 
-- Chi phí mỗi việc thành công khi xem lại 100% (`noi_dia` + `hang_nang`), so với 12.000 đ: ...
-- Kết quả này nói gì về thứ pilot cần học được? ...
+Với 948 ca xem lại × 5 phút, 48 ca làm lại × 9 phút và 224.513 đ tiền máy, chi phí là 11.743 đ/việc, bằng 0,98× làm tay, trước chi phí cố định (simulated). Pilot cần đo phút thật và kiểm tra khi nào có thể giảm duyệt an toàn.
