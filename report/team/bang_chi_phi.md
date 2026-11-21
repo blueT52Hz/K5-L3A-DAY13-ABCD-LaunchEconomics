@@ -25,7 +25,7 @@ Số tính bằng `src/lab13.py`. Mọi con số tính từ cột `_simulated` g
 | Hoá đơn token và tool chia cho số yêu cầu | 274,7 | | đo từ trace |
 
 - Chi phí mỗi việc thành công gấp bao nhiêu lần "hoá đơn chia số yêu cầu"? 4.472 đ ÷ 274,7 đ ≈ **16,3 lần** (simulated). Phần lớn chi phí là giờ của nhân viên, không phải token.
-- Khoản nào chiếm tỉ trọng lớn nhất trong tổng chi phí, bao nhiêu phần trăm? **Làm lại: 2.264.000 đ, chiếm 51,8%** tổng chi phí (simulated). Xem lại chiếm 40,7% (simulated), token 5,6%, tool 1,9%.
+- Khoản nào chiếm tỉ trọng lớn nhất trong tổng chi phí, bao nhiêu phần trăm? **Làm lại: 2.264.000 đ, chiếm 51,8%** tổng chi phí (simulated). Xem lại chiếm 40,7% (simulated), token 5,6% (simulated) và tool 1,9% (simulated).
 
 **Rà soát CP1 của Người gắn nhãn 1.** Người gắn nhãn 1 tính lại độc lập từ hai CSV, không dùng `mo_hinh`. Mọi số A2, A3, A4 khớp với bảng: tổng 4.373.585 đ, 978 việc thành công, 4.472 đ/việc; A3 khớp cả 4 loại; A4 ra 1.185 đ và 2.370 đ cố định mỗi việc. Mọi số dùng `phut_xem_lai_simulated` hoặc `phut_lam_lai_simulated` đều đã có nhãn `simulated`. Token, tool và số việc thành công đo từ trace nên không gắn nhãn.
 
@@ -59,7 +59,7 @@ Số tính bằng `src/lab13.py`. Mọi con số tính từ cột `_simulated` g
 
 ## B1 · Đổi từng yếu tố
 
-| Kịch bản | Cách tính | Chi phí mỗi việc thành công (simulated) | Thay đổi (%) |
+| Kịch bản | Cách tính | Chi phí mỗi việc thành công (simulated) | Thay đổi (%) (simulated) |
 | --- | --- | ---: | ---: |
 | Giá token gấp đôi | 52 đ và 260 đ cho 1.000 token; giá tool giữ nguyên | 4.723 đ | +5,6% |
 | Giá token giảm một nửa | 13 đ và 65 đ | 4.346 đ | −2,8% |

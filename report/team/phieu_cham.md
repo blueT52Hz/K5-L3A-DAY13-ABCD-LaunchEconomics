@@ -18,4 +18,4 @@ Nhóm số n chấm nhóm số n + 1; nhóm cuối chấm nhóm 1. Chấm theo b
 
 **Một câu hỏi cho đội trình:** Nếu tới ngày chốt kỳ đo mà một nhóm chưa đạt 859 yêu cầu hiệu dụng, đội sẽ xử lý thế nào?
 
-**Câu trả lời của đội trình (ghi lại tại buổi):** Chờ phản hồi từ LangChai.
+**Câu trả lời dự thảo dựa trên kế hoạch LangChai:** Đến ngày chốt, chúng tôi tính lại cỡ mẫu hiệu dụng của từng nhóm theo số yêu cầu của từng nhân viên. Nếu một nhóm chưa đạt **859 yêu cầu hiệu dụng**, Giám đốc vận hành duyệt kéo dài kỳ thu mẫu theo tốc độ của nhóm có lưu lượng thấp hơn, giữ nguyên phân nhóm và tiếp tục áp dụng các luật dừng. Các ca cuối cần đủ cửa sổ **24 giờ để đóng và 7 ngày theo dõi mở lại sau khi đóng**. Nếu vẫn thiếu mẫu hoặc chưa đủ thời gian theo dõi, chúng tôi ghi **chưa đủ bằng chứng** và hoãn kết luận về hiệu quả. [Kế hoạch pilot LangChai](https://github.com/hoangnguyenai/K5-L3A-DAY13-LangChai-LaunchEconomics/blob/079dd5f92c125d52097c2877e30433bd5a02a650/report/team/pilot_plan.yaml#L51-L67)
