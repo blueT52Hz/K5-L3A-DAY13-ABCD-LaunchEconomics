@@ -2,19 +2,19 @@
 
 ## Thông tin nhóm
 
-- Tên nhóm:
-- Lớp: L3A hoặc L3B
-- Repo nhóm: `K5-L3A-DAY13-TenNhom-LaunchEconomics` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt:
+- Tên nhóm: ABCD
+- Lớp: L3A
+- Repo nhóm: `K5-L3A-DAY13-ABCD-LaunchEconomics` (xem [SUBMISSION.md](SUBMISSION.md))
+- URL repo, nhánh nộp, commit chốt: `https://github.com/blueT52Hz/K5-L3A-DAY13-ABCD-LaunchEconomics`, nhánh `main` (cập nhật commit chốt ở CP5)
 
 ## Thành viên
 
-| STT | Họ tên                | MSSV        | Email | GitHub | Vai trò                           |
-| --: | --------------------- | ----------- | ----- | ------ | --------------------------------- |
-|   1 | Vũ Trí Dũng           | 2A202603478 |       |        | Viết code trước giải lao          |
-|   2 | Nguyễn Hoa Thanh Tùng | 2A202603519 |       |        | Kiểm số, viết code sau giải lao   |
-|   3 | Nguyễn Quang Duy      | 2A202603462 |       |        | Gắn nhãn 1, theo dõi tiêu chí đạt |
-|   4 | Khổng Tiến Dương      | 2A202603467 |       |        | Gắn nhãn 2, kiêm giữ hồ sơ        |
+| STT | Họ tên                | MSSV        | Email | GitHub | Vai trò                                                                                                |
+| --: | --------------------- | ----------- | ----- | ------ | ------------------------------------------------------------------------------------------------------ |
+|   1 | Vũ Trí Dũng           | 2A202603478 |       |        | Người viết code (A1–A4, B1–B2, nháp D2, E2, chấm C6)                                                   |
+|   2 | Nguyễn Hoa Thanh Tùng | 2A202603519 |       |        | Người kiểm số & viết code (kiểm A2–A4, B3–B4, D1, chấm C8)                                             |
+|   3 | Nguyễn Quang Duy      | 2A202603462 |       |        | Người gắn nhãn 1 (rubric, gắn nhãn C, E1, chấm C7)                                                     |
+|   4 | Khổng Tiến Dương      | 2A202603467 |       |        | Người gắn nhãn 2, kiêm giữ hồ sơ (TEAM.md, gắn nhãn C, pilot_plan.yaml, hồ sơ launch, group_report.md) |
 
 Bốn vai của lab:
 
@@ -23,11 +23,11 @@ Bốn vai của lab:
 - **Người gắn nhãn 1:** đọc đề, theo dõi điều kiện "Xong khi"; gắn nhãn 20 ca độc lập ở CP3.
 - **Người gắn nhãn 2, kiêm giữ hồ sơ:** điền `report/team/ho_so_launch_v0.md` từ đầu buổi; gắn nhãn 20 ca độc lập ở CP3.
 
-Đổi người viết code sau giờ giải lao, để ít nhất hai người trong nhóm tự tay tính được chi phí.
+Hai người (Số 1 và Số 2) cùng tham gia viết code và tính chi phí để ít nhất hai người trong nhóm tự tay tính được chi phí.
 
 ## Cá nhân
 
-Mỗi thành viên đồng thời tạo một báo cáo riêng trong `report/` theo dạng:
+Mỗi thành viên đồng thời tạo một báo cáo riêng trong `report/team/` theo dạng:
 
 ```text
 report/team/MSSV_HoTen.md
@@ -35,13 +35,65 @@ report/team/MSSV_HoTen.md
 
 Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
-Sao chép mục dưới đây cho từng thành viên.
-
-## HoVaTen-MSSV
+## Vũ Trí Dũng - 2A202603478 (Số 1)
 
 ### Phần việc phụ trách
 
+- CP1: Cài môi trường, chạy thử `src/lab13.py`; hoàn thiện 3 hàm A1 và chạy 3 phép thử (1,20 · 1,25 · 1,25); viết `mo_hinh`, tính A2 và điền đủ 9 dòng.
+- CP2: Chạy B1 đủ 9 kịch bản, B2 đổi một cặp yếu tố và xếp hạng 3 yếu tố nhạy nhất.
+- CP3–CP4: Hoàn thiện B1–B2 nếu cần đối chiếu; nháp và chốt 5 câu D2 (đối chứng, ngẫu nhiên hóa, tràn tác động, chốt trước, số cụm).
+- CP5: Viết E2 (ít nhất 2 rủi ro có số, dấu hiệu, hành động, vai trò); soát top 3 yếu tố nhạy và số bất lợi từ B4; chấm C6; chạy lại `python lab13.py` từ `src/` trên máy khác.
+
+### Đóng góp cụ thể
+
 -
+
+### Bằng chứng
+
+-
+
+## Nguyễn Hoa Thanh Tùng - 2A202603519 (Số 2)
+
+### Phần việc phụ trách
+
+- CP1: Kiểm tra cách đọc hai CSV, chuẩn bị phép tính tay; tính tay một số A2 từ CSV để đối chiếu; tính A3 cho 4 loại và A4 ở 2 mức sản lượng có chi phí cố định.
+- CP2: Làm B3 cho giới hạn 1/2/3 lượt (gồm chi phí thủ công ca thất bại) và B4 xem lại 100% với hai giả định phút làm lại.
+- CP3–CP4: Hoàn thiện B3–B4 nếu cần đối chiếu; tính đủ 5 phép tính cỡ mẫu D1; bàn giao kết quả D1, cách chia đề xuất và đánh đổi cỡ mẫu/power.
+- CP5: Đối chiếu số E2 với B và kiểm tra nhất quán với kế hoạch pilot; soát phạm vi, chi phí và đánh đổi cỡ mẫu; chấm C8; kiểm tra kết quả, `yaml.safe_load` và hết dấu `?`.
+
+### Đóng góp cụ thể
+
+-
+
+### Bằng chứng
+
+-
+
+## Nguyễn Quang Duy - 2A202603462 (Số 3)
+
+### Phần việc phụ trách
+
+- CP1: Đọc rubric và tiêu chí của từng checkpoint; tính sớm 3 chỉ số E1 và tỷ lệ mở lại từ CSV; rà số liệu và yêu cầu gắn nhãn `simulated`.
+- CP2: Nháp event và 2 chỉ số bổ sung cho E1.
+- CP3–CP4: Gắn nhãn độc lập đủ 20 ca lỗi theo nguyên nhân gốc; tính đồng thuận, ghi quy tắc cho ca lệch, viết 3 dòng khắc phục và tổng hợp `bang_loi.md`; bàn giao tỷ lệ mở lại toàn mẫu và trong phạm vi pilot, đối chiếu tín hiệu an toàn từ C.
+- CP5: Chốt E1 (3 chỉ số tính thử, thêm 1 chỉ số sử dụng, 1 chỉ số an toàn, ít nhất 6 event có `trace_id`); soát bằng chứng lỗi, chỉ số, event và nhãn `simulated`; chấm C7 và tổng hợp `phieu_cham.md`; rà đủ 6 file hồ sơ và tên file cá nhân.
+
+### Đóng góp cụ thể
+
+-
+
+### Bằng chứng
+
+-
+
+## Khổng Tiến Dương - 2A202603467 (Số 4)
+
+### Phần việc phụ trách
+
+- CP1: Điền vai và thông tin nhóm trong `TEAM.md`, mở khung hồ sơ launch và báo cáo nhóm; chuẩn bị khung YAML và các mục hồ sơ cần số từ A; nhận số A2–A4, điền chi phí và so sánh với nhân viên tự làm trong `ho_so_launch_v0.md`.
+- CP2: Nhận top 3 và số B3/B4 để cập nhật hồ sơ và nháp luật dừng.
+- CP3–CP4: Gắn nhãn độc lập cùng 20 ca lỗi theo nguyên nhân gốc; thống nhất ca lệch, viết 2 dòng khắc phục, đưa lỗi đáng lưu ý vào hồ sơ; chốt `pilot_plan.yaml` (ghi D1/D2 trong chú thích, điền rollout, rollback, ngày quyết định, kiểm tra `yaml.safe_load`).
+- CP5: Nhận E1/E2 cập nhật hai mục chỉ số và rủi ro; gửi `ho_so_launch_v0.md` một trang, 7 mục (mỗi mục có số chính, trạng thái, vai trò phụ trách); trình hồ sơ nhóm và điều phối trả lời; chốt `group_report.md`, cập nhật đóng góp trong `TEAM.md`, điều phối commit/push và kiểm tra quyền xem repo.
 
 ### Đóng góp cụ thể
 
