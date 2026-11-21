@@ -23,11 +23,11 @@ Viết "chỉ số trong đợt chạy thử là …", không viết "trợ lý 
 | Event | Ai tạo | Thuộc tính chính | Thời điểm |
 | --- | --- | --- | --- |
 | `refund_request_created` | App khách | request_id, depot, loai, so_tien_vnd, arm (`can_thiep` / `doi_chung`), trace_id | Khi khách gửi yêu cầu |
-| `agent_run_completed` | Agent | request_id, attempt, tokens_in, tokens_out, tool_calls, status (`ok` / `loi`), trace_id | Sau mỗi lần chạy, kể cả lần lỗi |
+| `agent_run_completed` | Agent | request_id, attempt, tokens_in, tokens_out, tool_calls, status (`ok` / `loi`), phien_ban_bang_gia, trace_id | Sau mỗi lần chạy, kể cả lần lỗi |
 | `agent_suggestion_shown` | Giao diện nhân viên | staff_id, so_tien_de_xuat, trace_id | Khi gợi ý hiện ra cho nhân viên |
 | `staff_review_decision` | Nhân viên | staff_id, quyet_dinh (`giu` / `sua` / `bo`), phut_xem_lai (đo thật), trace_id | Khi nhân viên bấm giữ, sửa hoặc bỏ |
 | `staff_rework_completed` | Nhân viên | staff_id, phut_lam_lai (đo thật), ly_do, trace_id | Khi làm lại xong |
-| `handoff_to_staff` | Agent | ly_do (hết 3 lần chạy / ngoài phạm vi), tom_tat, trace_id | Khi chuyển yêu cầu cho nhân viên |
+| `handoff_to_staff` | Agent | ly_do (`het_3_lan_chay` / `ngoai_pham_vi` / `ngoai_du_lieu_12_thang`), tom_tat, trace_id | Khi chuyển yêu cầu cho nhân viên |
 | `refund_ledger_write` | Dịch vụ sổ cái | idempotency_key, so_tien, ket_qua, trace_id | Khi ghi tiền hoàn vào sổ |
 | `ticket_closed` | Hệ thống ticket | closed_at, created_at, trace_id | Khi đóng yêu cầu |
 | `ticket_reopened` | Khách | reopened_at, ly_do, trace_id | Khi khách mở lại yêu cầu |

@@ -44,7 +44,7 @@ Cách phát hiện phải đo được (event, ngưỡng, tần suất). Ngườ
 | Ca | Loại lỗi | Phát hiện bằng gì | Khắc phục thế nào | Ai phụ trách |
 | --: | --- | --- | --- | --- |
 | ... | Do người dùng | ... | ... | ... |
-| ... | Hệ thống | ... | ... | ... |
+| 20 | Hệ thống | Đối soát hằng ngày event `refund_ledger_write`: đếm số mã vận đơn có từ 2 lệnh hoàn trở lên trong 24 giờ. Ngưỡng: lớn hơn 0 ca/ngày thì báo động ngay | Lệnh hoàn bắt buộc có `idempotency_key` = mã vận đơn + loại hoàn phí; sổ cái từ chối lệnh trùng khoá. Khách gửi lại yêu cầu thì trợ lý trả trạng thái của yêu cầu cũ thay vì tạo lệnh mới. Thu hồi khoản hoàn thừa | Kỹ sư phụ trách agent hoàn phí |
 | ... | Ngữ cảnh | ... | ... | ... |
-| ... | Giới hạn hệ thống | ... | ... | ... |
-| ... | Ngầm | ... | ... | ... |
+| 19 | Giới hạn hệ thống | Event `handoff_to_staff` có `ly_do = ngoai_du_lieu_12_thang`, tổng hợp hằng tuần. Ngưỡng: tỉ lệ trên 2% số yêu cầu, hoặc có handoff mà `tom_tat` rỗng, hoặc nhân viên đóng sau handoff quá 24 giờ (từ `ticket_closed`) | Giữ cách xử lý hiện tại (nói rõ giới hạn, chuyển kèm tóm tắt). Kiểm tra tuổi đơn ngay bước đầu để chuyển trước khi gọi tool tra cứu, tránh tốn token, và báo khách thời gian xử lý dự kiến | Trưởng nhóm CSKH |
+| 17 | Ngầm | Event `audit_sample_checked` hằng tuần trên 100 đơn chọn ngẫu nhiên: tỉ lệ đơn có `so_tien_da_hoan` khác `so_tien_dung`. Ngưỡng: trên 1% số đơn hoặc tổng lệch trên 200.000 đ/tuần. Thêm phiên bản bảng giá vào `agent_run_completed` và so với bản hiện hành mỗi ngày | Xoá bộ nhớ đệm bảng giá mỗi khi bảng giá đổi, ghi phiên bản bảng giá vào trace của mỗi lần chạy. Rà lại 212 đơn bị lệch và hoàn bù hoặc điều chỉnh | Kỹ sư phụ trách agent hoàn phí |
