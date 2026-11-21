@@ -18,7 +18,8 @@ Báo cáo ngắn, tối đa 2 trang. Số liệu chi tiết nằm trong các fil
 Tóm tắt cách nhóm làm từng nhiệm vụ A–E và link tới file hồ sơ tương ứng.
 
 - **Nhiệm vụ A (CP1 — Mô hình chi phí):** Đã hoàn thành A1 (1,20 · 1,25 · 1,25 — ĐẠT), mô hình `mo_hinh` cho A2 (4.472 đ/việc, simulated), tách 4 loại A3 (đề xuất pilot `noi_dia` + `hang_nang`, loại `quoc_te` 22.515 đ/việc) và phân bổ chi phí cố định A4 (4.599 đ và 5.784 đ/việc ở 45.000 và 22.500 yc/tháng, simulated). Chi tiết: [bang_chi_phi.md](bang_chi_phi.md).
-- *(Các nhiệm vụ B–E sẽ cập nhật sau các checkpoint tiếp theo.)*
+- **Nhiệm vụ B (CP2 — Độ nhạy):** Đã chạy đủ 9 kịch bản B1, xác định top 3 yếu tố nhạy nhất (số ca làm lại +51,8%/−25,9%, tỉ lệ xem lại +40,7%/−20,3%, lương nhân viên +23,1%, simulated), tính B3 (giới hạn 2 lượt rẻ nhất cả hệ thống: 6.901.220 đ, simulated) và B4 xem lại 100% (11.743 đ ở 9 phút; 12.415 đ ở 15,3 phút, hòa vốn ở 4,80 phút xem lại/ca, simulated). Đã cập nhật hồ sơ và nháp 3 luật dừng trong [pilot_plan.yaml](pilot_plan.yaml). Chi tiết: [bang_chi_phi.md](bang_chi_phi.md).
+- *(Các nhiệm vụ C–E sẽ cập nhật sau các checkpoint tiếp theo.)*
 
 ## 4. Kết quả
 
