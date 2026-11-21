@@ -21,11 +21,11 @@
 # Đánh đổi đề xuất: thiết kế có power mục tiêu 80% ở mức tăng 6 điểm phần trăm. Nếu mức tăng thật chỉ là 5 điểm phần trăm, power còn khoảng 64%.
 #
 # D2 · Năm câu kiểm tra "tách được tác động" với cách chia đã chọn (mỗi câu một dòng):
-#   1. Đối chứng chạy cùng thời gian: [Nháp] Có — 20 nhân viên đối chứng chạy song song trong cùng các tuần và cùng depot với 20 nhân viên dùng trợ lý.
-#   2. Chia ngẫu nhiên hay do người chọn: [Nháp] Bốc thăm ngẫu nhiên bằng code với seed ghi trước (phân tầng theo depot), không để quản lý hay nhân viên tự chọn.
-#   3. Ảnh hưởng gián tiếp và cách giảm: [Nháp] Có rủi ro nhân viên cùng depot chia sẻ câu trả lời/gợi ý; giảm bằng cấp quyền truy cập trợ lý theo tài khoản staff_id nhóm can thiệp và log lượt mở theo staff_id.
-#   4. Chỉ số chính, ngưỡng, ngày quyết định đã viết trước: [Nháp] Có — ghi sẵn trong pilot_plan.yaml trước ngày chạy gồm dong_trong_24h_khong_mo_lai_7_ngay, MDE (+6 điểm; power 0,64 nếu hiệu ứng thật +5 điểm theo D1), ba luật dừng và decision_date.
-#   5. Ít nhất 20 cụm mỗi nhóm: [Nháp] Đạt đúng 20 cụm mỗi nhóm khi chia theo nhân viên (20 + 20, mỗi người ≥ 299 yêu cầu, DE = 6,96 theo D1 mục e); chia theo depot chỉ có 6 cụm/nhóm nên loại — chờ chốt ở CP4.
+#   1. Đối chứng chạy cùng thời gian: Có — 20 nhân viên đối chứng làm việc song song trong cùng các tuần và cùng depot với 20 nhân viên dùng trợ lý.
+#   2. Chia ngẫu nhiên hay do người chọn: Chia ngẫu nhiên bằng code với seed ghi trước (phân tầng theo depot, mỗi depot 50/50), không để quản lý hay nhân viên tự chọn.
+#   3. Ảnh hưởng gián tiếp và cách giảm: Có rủi ro nhân viên cùng depot trao đổi gợi ý; kiểm soát bằng cấp quyền truy cập trợ lý theo tài khoản staff_id nhóm can thiệp, cấm dùng chung gợi ý sang ca đối chứng và ghi log mọi lượt mở theo staff_id để kiểm tra chéo.
+#   4. Chỉ số chính, ngưỡng, ngày quyết định đã viết trước: Có — chốt trước ngày bắt đầu trong pilot_plan.yaml gồm dong_trong_24h_khong_mo_lai_7_ngay, MDE +6 điểm (power 0,64 nếu hiệu ứng thật +5 điểm theo D1), 3 luật dừng và decision_date.
+#   5. Ít nhất 20 cụm mỗi nhóm: Đạt — chia theo nhân viên cho đúng 20 cụm mỗi nhóm (20 + 20, mỗi người ≥ 299 yêu cầu, DE = 6,96, đạt 859 quan sát hiệu dụng theo D1 mục e); loại cách chia theo depot (chỉ có 6 cụm/nhóm).
 #
 # Đánh đổi đã chấp nhận (nếu cách chia chưa đạt cả hai điều kiện):
 #
@@ -49,9 +49,9 @@ pilot:
     design_effect: "?"            # 1 nếu chia theo yêu cầu
     clusters_per_arm: "?"         # để trống nếu chia theo yêu cầu
   identifiability:
-    concurrent_control: "?"
-    spillover_risk: "?"
-    predeclared: "?"
+    concurrent_control: true
+    spillover_risk: "Trung bình (cùng depot); kiểm soát bằng cấp quyền trợ lý theo staff_id nhóm can thiệp, không chia sẻ gợi ý sang ca đối chứng và log lượt mở theo staff_id"
+    predeclared: true
   # Bản nháp CP2. Chốt lại cùng nhóm đối chứng, lịch đo và quyền dừng ở CP4.
   # Tỉ lệ mở lại trong phạm vi thử là 3,97% (39/982).
   # B3: 2 lượt tốn 6.901.220 đ cả hệ thống trên mẫu (simulated).
