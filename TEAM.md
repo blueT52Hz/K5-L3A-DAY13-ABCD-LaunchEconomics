@@ -63,11 +63,12 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 ### Đóng góp cụ thể
 
--
+- Đối chiếu phí tool A2, rà A3–A4, viết và chạy B3–B4 cùng năm phép tính D1.
+- Rà E2 với A4 và B, kiểm tra YAML và chỉ ra kỳ đo bậc 50% cần dài hơn một tuần để đủ mẫu.
 
 ### Bằng chứng
 
--
+- [Báo cáo cá nhân Nguyễn Hoa Thanh Tùng](report/team/2A202603519_NguyenHoaThanhTung.md)
 
 ## Nguyễn Quang Duy - 2A202603462 (Số 3)
 
