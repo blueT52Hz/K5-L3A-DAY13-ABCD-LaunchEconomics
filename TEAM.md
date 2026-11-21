@@ -9,12 +9,12 @@
 
 ## Thành viên
 
-| STT | Họ tên                | MSSV        | Email | GitHub | Vai trò                                                                                                |
-| --: | --------------------- | ----------- | ----- | ------ | ------------------------------------------------------------------------------------------------------ |
-|   1 | Vũ Trí Dũng           | 2A202603478 |       |        | Người viết code (A1–A4, B1–B2, nháp D2, E2, chấm C6)                                                   |
-|   2 | Nguyễn Hoa Thanh Tùng | 2A202603519 |       |        | Người kiểm số & viết code (kiểm A2–A4, B3–B4, D1, chấm C8)                                             |
-|   3 | Nguyễn Quang Duy      | 2A202603462 |       |        | Người gắn nhãn 1 (rubric, gắn nhãn C, E1, chấm C7)                                                     |
-|   4 | Khổng Tiến Dương      | 2A202603467 |       |        | Người gắn nhãn 2, kiêm giữ hồ sơ (TEAM.md, gắn nhãn C, pilot_plan.yaml, hồ sơ launch, group_report.md) |
+| STT | Họ tên                | MSSV        | Email                 | GitHub        | Vai trò                                                                                                |
+| --: | --------------------- | ----------- | --------------------- | ------------- | ------------------------------------------------------------------------------------------------------ |
+|   1 | Vũ Trí Dũng           | 2A202603478 | dungvutri25@gmail.com | VuTriDung1123 | Người viết code (A1–A4, B1–B2, nháp D2, E2, chấm C6)                                                   |
+|   2 | Nguyễn Hoa Thanh Tùng | 2A202603519 |                       |               | Người kiểm số & viết code (kiểm A2–A4, B3–B4, D1, chấm C8)                                             |
+|   3 | Nguyễn Quang Duy      | 2A202603462 |                       |               | Người gắn nhãn 1 (rubric, gắn nhãn C, E1, chấm C7)                                                     |
+|   4 | Khổng Tiến Dương      | 2A202603467 |                       |               | Người gắn nhãn 2, kiêm giữ hồ sơ (TEAM.md, gắn nhãn C, pilot_plan.yaml, hồ sơ launch, group_report.md) |
 
 Bốn vai của lab:
 
