@@ -33,7 +33,7 @@ Con số chính (ghi nhãn `simulated` khi cần) và đề xuất cuối của 
 - **Kế hoạch pilot (D):** Chia ngẫu nhiên theo nhân viên (`20 + 20` cụm, phân tầng 12 depot), `MDE = +6 điểm` (`859` hiệu dụng/nhóm, `DE = 6,96`, `≥ 5.980` yc/nhóm), rollout `10% → 25% → 50%` (kéo dài bậc 50% thành 2 tuần) + 7 ngày theo dõi mở lại, `decision_date: 2026-12-28`, 4 luật dừng và rollback 30 phút.
 - **Chỉ số & Rủi ro (E1–E2):** Đợt chạy thử đạt chỉ số chính `82,83%` (`92,26%` trong phạm vi pilot), bỏ qua gợi ý `27,12%` (`21,09%` trong pilot), mở lại 7 ngày `4,25%` (`3,97%` trong pilot; riêng `hang_nang` `8,23%`); 11 event có `trace_id` và 3 rủi ro kinh tế.
 - **Đề xuất Gate 2a:** **Go có điều kiện** (chỉ mở pilot với 3 điều kiện về giới hạn 2 lượt + phạm vi, sửa lỗi hoàn trùng/cache bảng giá/validation trước ngày mở, và đo thật phút xem lại/làm lại + tách theo dõi `hang_nang`).
-- **Kết quả duyệt chéo:** *(Cập nhật sau phần trình bày và chấm chéo của hội đồng tại buổi trong [phieu_cham.md](phieu_cham.md)).*
+- **Duyệt chéo Gate 2a:** ABCD chấm LangChai **30/30** và đề xuất **Go có điều kiện** cho pilot nội địa và hàng nặng. Phản hồi của hội đồng chấm hồ sơ ABCD đang chờ cập nhật. [Phiếu ABCD chấm LangChai](phieu_cham.md)
 
 ## 5. Khó khăn và cách xử lý
 
