@@ -32,6 +32,7 @@ Viết "chỉ số trong đợt chạy thử là …", không viết "trợ lý 
 | `ticket_closed` | Hệ thống ticket | closed_at, created_at, trace_id | Khi đóng yêu cầu |
 | `ticket_reopened` | Khách | reopened_at, ly_do, trace_id | Khi khách mở lại yêu cầu |
 | `audit_sample_checked` | Kế toán | so_tien_da_hoan, so_tien_dung, trace_id | Hằng tuần, trên mẫu ngẫu nhiên |
+| `bank_transfer_failed` | Cổng ngân hàng | error_code (`invalid_account_number` / `input_validation_failed` / …), so_tien, trace_id | Khi ngân hàng từ chối lệnh chuyển tiền hoàn |
 
 **Kiểm tra chéo:** với mỗi chỉ số ở bảng E1, ghi event dùng để tính. Chỉ số nào không tính được từ danh sách event thì chưa đo được.
 
@@ -42,6 +43,12 @@ Viết "chỉ số trong đợt chạy thử là …", không viết "trợ lý 
 - **An toàn · tự đề xuất:** `audit_sample_checked`. Ghi trùng tiền thì đối chiếu thêm `idempotency_key` trong `refund_ledger_write`.
 - **Chi phí (dùng cho A và luật dừng chi phí):** `agent_run_completed` cho token và tool; `staff_review_decision.phut_xem_lai` và `staff_rework_completed.phut_lam_lai` thay cho hai cột `_simulated` sau tuần đầu pilot.
 - Cả năm chỉ số đều tính được từ danh sách event, nên đều đo được.
+
+**Đối chiếu với lỗi C và cửa sổ theo dõi D (chốt CP5):**
+
+- **Lỗi C nào chỉ số nào bắt được.** Chỉ số an toàn "mở lại trong 7 ngày" (`ticket_reopened`) bắt được các ca khách nhận ra lỗi: ca 2 (hoàn thiếu, khách mở lại) và ca 18 (`ly_do = khieu_nai_thieu_tien`). Nó **không** bắt được lỗi Ngầm (ca 5, 17: không ai mở lại) và hoàn trùng (ca 20, khách không phàn nàn). Vì vậy cần thêm chỉ số an toàn tự đề xuất từ `audit_sample_checked` và đối soát `refund_ledger_write`. Bốn dòng còn lại trong `bang_loi.md` đều dùng event có trong bảng trên: ca 1 dùng `bank_transfer_failed`, ca 19 dùng `handoff_to_staff`, ca 17 dùng `audit_sample_checked` và `agent_run_completed.phien_ban_bang_gia`, ca 20 dùng `refund_ledger_write`.
+- **Cửa sổ theo dõi.** Chỉ số chính và chỉ số an toàn cần 7 ngày sau `ticket_closed` mới chốt được một ca. Mỗi bậc rollout (10% → 25% → 50%) kéo dài một tuần, nên số đo cuối mỗi bậc chỉ gồm các ca đóng từ đủ 7 ngày trở lên. Luật dừng an toàn trong `pilot_plan.yaml` (vượt 6% trong 3 ngày kiểm tra liên tiếp) chỉ tính trên các ca đã đủ thời gian theo dõi. Mức hiện tại là 3,97% trong phạm vi pilot; riêng `hang_nang` là 8,23%, nên báo cáo tách riêng theo loại.
+- **Thay số simulated.** Phút xem lại và phút làm lại trong A và B là số simulated. Từ tuần 1 của pilot, các số này được thay bằng `staff_review_decision.phut_xem_lai` và `staff_rework_completed.phut_lam_lai` đo thật.
 
 ## E2 · Rủi ro kinh tế
 
